@@ -22,47 +22,6 @@ CSV_PARAMS = {
 
 # Utilitários para extrair dados de xml
 
-def xml_text(node, xpath):
-    """
-    :param node: o nó consultado
-    :param xpath: o caminho ao texto do nó
-    """
-    text = node.find(xpath).text
-    if text is not None:
-        text = text.strip()
-    return text
-
-
-def xml_date(node, xpath, date_format='%d/%m/%Y'):
-    """
-    :param node: o nó consultado
-    :param xpath: o caminho à data do nó
-    """
-    return datetime.strptime(xml_text(node, xpath), date_format)
-
-
-def xml_datetime(node, xpath, datetime_format='%d/%m/%Y %H:%M:%S'):
-    """
-    :param node: o nó consultado
-    :param xpath: o caminho à data/hora do nó
-    """
-    return datetime.strptime(xml_text(node, xpath), datetime_format)
-
-
-# Utilitários para salvar os dados em csv comprimido e regular
-
-def save_xz(df, data_dir, name):
-    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
-    file_path = os.path.join(data_dir, '{}-{}.xz'.format(today, name))
-    df.to_csv(file_path, **XZ_PARAMS)
-
-
-def save_csv(df, data_dir, name):
-    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
-    file_path = os.path.join(data_dir, '{}-{}.csv'.format(today, name))
-    df.to_csv(file_path, **CSV_PARAMS)
-
-
 class xml_df:
 
     def __init__(self, xml_data):
@@ -85,3 +44,17 @@ class xml_df:
     def process_data(self):
         structure_data = self.parse_root(self.root)
         return pd.DataFrame(structure_data)
+
+
+# Utilitários para salvar os dados em csv comprimido e regular
+
+def save_xz(df, data_dir, name):
+    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
+    file_path = os.path.join(data_dir, '{}-{}.xz'.format(today, name))
+    df.to_csv(file_path, **XZ_PARAMS)
+
+
+def save_csv(df, data_dir, name):
+    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
+    file_path = os.path.join(data_dir, '{}-{}.csv'.format(today, name))
+    df.to_csv(file_path, **CSV_PARAMS)
