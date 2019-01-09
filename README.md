@@ -12,6 +12,29 @@ Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abert
 
 Em breve serão incluidos no Nove de Julho scripts para coletar dados que não estão no portal, por meio de raspagem do site da Alesp.
 
+### Roadmap
+
+__Versão 0.0.1__<br>
+__Foco:__ dados de deputados<br>
+__Previsão de conclusão:__ segunda quinzena de jan.2019<br>
+
+- [x] Funções e classes em `toolbox.py` para suportar `gasto_cota.py`
+- [x] Script de aquisição de dados de gastos na cota (`gasto_cota.py`)
+- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `gasto_cota.py`
+- [ ] Funções e classes em `toolbox.py` para suportar `deputados.py`
+- [ ] Script de aquisição de dados de deputados (`deputados.py`)
+- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `deputados.py`
+- [ ] Funções e classes em `toolbox.py` para suportar `atuacao.py`
+- [ ] Script de aquisição de dados da área de atuação dos deputados (`atuacao.py`)
+- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `atuacao.py`
+- [ ] Funções e classes em `toolbox.py` para suportar `base_eleitoral.py`
+- [ ] Script de aquisição de dados da área de atuação dos deputados (`base_eleitoral.py`)
+- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `base_eleitoral.py`
+
+__Versão 0.0.2__<br>
+__Foco:__ dados de proposições<br>
+__Previsão de conclusão:__ primeira quinzena de fev.2019<br>
+
 ### Licença MIT
 
 Copyright (c) 2019 Rodolfo Viana
