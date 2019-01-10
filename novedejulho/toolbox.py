@@ -24,15 +24,15 @@ class xml_df:
     def parse_element(self, element, parsed=None):
         if parsed is None:
             parsed = dict()
-        
+
         new_values = {k: element.attrib.get(k) for k in element.keys()}
-        parsed.extend(new_values)
+        parsed.update(new_values)
         if element.text:
             parsed[element.tag] = element.text
-        
+
         for child in list(element):
             self.parse_element(child, parsed)
-            
+
         return parsed
 
     def process_data(self):
@@ -50,15 +50,7 @@ def save_file(df, data_dir, name, extension):
     file_name = '{}-{}.{}'.format(today, name, extension)
     df.to_csv(os.path.join(data_dir, file_name), **params)
 
-    
+
 def save_files(df, data_dir, name):
     for extension in ('csv', 'xz'):
         save_file(df, data_dir, name, extension)
-        
-        
-def save_xz(df, data_dir, name):
-    save_file(df, data_dir, name, 'xz')
-    
-
-def save_csv(df, data_dir, name):
-    save_file(df, data_dir, name, 'csv')
