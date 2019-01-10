@@ -1,6 +1,6 @@
 import os
 import requests as req
-from novedejulho.toolbox import (xml_df, save_csv, save_xz)
+from novedejulho.toolbox import (xml_df, save_files)
 
 url = 'https://www.al.sp.gov.br/repositorioDados/deputados/deputados.xml'
 arquivo = 'deputados'
@@ -27,8 +27,7 @@ def process_request():
         'PlacaVeiculo': 'placa_carro', 'Aniversario': 'aniversario',
         'Situacao': 'status'
     })
-    save_csv(dataset, data_dir, arquivo)
-    save_xz(dataset, data_dir, arquivo)
+    save_files(dataset, data_dir, arquivo)
 
 
 if __name__ == '__main__':
