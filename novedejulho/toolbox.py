@@ -19,7 +19,7 @@ class xml_df:
 
     def parse_root(self, root=None):
         root = root if root else self.root
-        yielf from (self.parse_element(child) for child in iter(root))
+        yield from (self.parse_element(child) for child in iter(root))
 
     def parse_element(self, element, parsed=None):
         if parsed is None:
