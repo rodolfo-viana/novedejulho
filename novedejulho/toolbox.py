@@ -5,19 +5,9 @@
 
 import os
 from datetime import datetime
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ElementTree
+
 import pandas as pd
-
-XZ_PARAMS = {
-    'compression': 'xz',
-    'encoding': 'utf-8',
-    'index': False
-}
-
-CSV_PARAMS = {
-    'encoding': 'utf-8',
-    'index': False
-}
 
 
 # Utilitários para extrair dados de xml
@@ -25,36 +15,50 @@ CSV_PARAMS = {
 class xml_df:
 
     def __init__(self, xml_data):
-        self.root = ET.XML(xml_data)
+        self.root = ElementTree.XML(xml_data)
 
-    def parse_root(self, root):
-        return [self.parse_element(child) for child in iter(root)]
+    def parse_root(self, root=None):
+        root = root if root else self.root
+        yielf from (self.parse_element(child) for child in iter(root))
 
     def parse_element(self, element, parsed=None):
         if parsed is None:
             parsed = dict()
-        for key in element.keys():
-            parsed[key] = element.attrib.get(key)
+        
+        new_values = {k: element.attrib.get(k) for k in element.keys()}
+        parsed.extend(new_values)
         if element.text:
             parsed[element.tag] = element.text
+        
         for child in list(element):
             self.parse_element(child, parsed)
+            
         return parsed
 
     def process_data(self):
-        structure_data = self.parse_root(self.root)
-        return pd.DataFrame(structure_data)
+        return pd.DataFrame(self.parse_root())
 
 
 # Utilitários para salvar os dados em csv comprimido e regular
 
-def save_xz(df, data_dir, name):
-    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
-    file_path = os.path.join(data_dir, '{}-{}.xz'.format(today, name))
-    df.to_csv(file_path, **XZ_PARAMS)
+def save_file(df, data_dir, name, extension):
+    params = {'encoding': 'utf-8', 'index': False}
+    if extension == 'xz':
+        params['compression'] = 'xz'
 
+    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
+    file_name = '{}-{}.{}'.format(today, name, extension)
+    df.to_csv(os.path.join(data_dir, file_name), **params)
+
+    
+def save_files(df, data_dir, name):
+    for extension in ('csv', 'xz'):
+        save_file(df, data_dir, name, extension)
+        
+        
+def save_xz(df, data_dir, name):
+    save_file(df, data_dir, name, 'xz')
+    
 
 def save_csv(df, data_dir, name):
-    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
-    file_path = os.path.join(data_dir, '{}-{}.csv'.format(today, name))
-    df.to_csv(file_path, **CSV_PARAMS)
+    save_file(df, data_dir, name, 'csv')
