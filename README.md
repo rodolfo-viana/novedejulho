@@ -4,36 +4,26 @@ Nove de Julho é um projeto open-source de ativismo cívico com foco na Assemble
 
 Seu objetivo é agregar e formatar conjuntos de dados da Alesp, como gastos na cota parlamentar, proposições apresentadas, leis aprovadas, presenças em sessões, andamento de comissões, lista de funcionários, salários, entre outros.
 
-Com desenvolvimento iniciado em janeiro de 2019, Nove de Julho é fortemente inspirado na [Operação Serenata de Amor](https://serenata.ai/).
+Com desenvolvimento iniciado em janeiro de 2019, Nove de Julho é desenvolvido por [rodolfo-viana](https://github.com/rodolfo-viana), com a colaboração de [cuducos](https://github.com/cuducos) e [jtemporal](https://github.com/jtemporal).
 
 ### Fonte dos dados
 
-Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abertos](https://www.al.sp.gov.br/dados-abertos/).
+Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abertos](https://www.al.sp.gov.br/dados-abertos/) ou, quando não disponíveis no portal, por meio de raspagem do site oficial da assembleia.
 
-Em breve serão incluidos no Nove de Julho scripts para coletar dados que não estão no portal, por meio de raspagem do site da Alesp.
+### Conteúdo
 
-### Roadmap
+Os scripts estão em desenvolvimento. Há três prontos:
 
-__Versão 0.0.1__<br>
-__Foco:__ dados de deputados<br>
-__Previsão de conclusão:__ segunda quinzena de jan.2019<br>
+- `deputados.py`<br>
+Retorna informações sobre os deputados estaduais, tais como nome, partido, telefone, e-mail, placa do veículo oficial...
 
-- [x] Funções e classes em `toolbox.py` para suportar `gasto_cota.py`
-- [x] Script de aquisição de dados de gastos na cota (`gasto_cota.py`)
-- [x] Funções e classes em `toolbox.py` para suportar `deputados.py`
-- [x] Script de aquisição de dados de deputados (`deputados.py`)
-- [ ] Funções e classes em `toolbox.py` para suportar `atuacao.py`
-- [ ] Script de aquisição de dados da área de atuação dos deputados (`atuacao.py`)
-- [ ] Funções e classes em `toolbox.py` para suportar `base_eleitoral.py`
-- [ ] Script de aquisição de dados da área de atuação dos deputados (`base_eleitoral.py`)
-- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `gasto_cota.py`
-- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `deputados.py`
-- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `atuacao.py`
-- [ ] Funções e classes em `formatting.py` para formatar dados obtidos com `base_eleitoral.py`
+- `gasto_cota.py`<br>
+Retorna os gastos efetuados com o auxílio da verba de gabinete.
 
-__Versão 0.0.2__<br>
-__Foco:__ dados de proposições<br>
-__Previsão de conclusão:__ primeira quinzena de fev.2019<br>
+- `salarios_servidores.py`<br>
+Retorna os salários dos servidores desde 2014.
+
+Os scripts rodam com o auxílio de `toolbox.py`.
 
 ### Licença MIT
 
