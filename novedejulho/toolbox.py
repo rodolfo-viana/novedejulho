@@ -54,3 +54,9 @@ def save_file(df, data_dir, name, extension):
 def save_files(df, data_dir, name):
     for extension in ('csv', 'xz'):
         save_file(df, data_dir, name, extension)
+
+
+# Utilitário para transformar em float e mudar de , para .
+
+def sanitize_float(item):
+    return float(item.get_text().strip().replace('.', '').replace(',', '.'))
