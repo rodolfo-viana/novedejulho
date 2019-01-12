@@ -45,7 +45,7 @@ Com o passo a passo anterior concluído:
 1. Abra o Terminal (MacOS e Linux) ou o Prompt de Comando (Windows)
 2. Vá até a pasta `novedejulho-master`
 3. Dentro de `novedejulho-master` digite `cd novedejulho`
-4. Dentro de `novedejulho` há os scripts. Para rodar, digite `python nomedoscript.py` (se não funcionar, digite `python3 nomedoscript.py`). Há três scripts prontos: `deputados.py` (para trazer dados dos deputados), `gasto_cota.py` (para obter dados de gastos efetuados por meio da verba de gabinete) e `salarios_servidores.py` (para retornar os nomes dos servidores e os valores recebidos desde 2014)
+4. Dentro de `novedejulho` há os scripts. Para rodar, digite `python nomedoscript.py` (se não funcionar, digite `python3 nomedoscript.py`)
 5. Aguarde até o script terminar de processar
 6. Automaticamente será gerada a pasta `data`, com dois arquivos: um `.csv`, com os dados para serem abertos em processadores de planilhas como Excel e LibreOffice Calc, e um `.xz`, com os mesmo dados, mas para serem usados caso você pretenda trabalhar com Jupyter Notebook. Ambos os arquivos são idênticos.
 
