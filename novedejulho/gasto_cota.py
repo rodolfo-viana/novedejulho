@@ -1,6 +1,7 @@
 import os
 import requests as req
-from novedejulho.toolbox import (xml_df, save_files)
+
+from toolbox import (xml_df, save_files)
 
 url = 'http://www.al.sp.gov.br/repositorioDados/deputados/despesas_gabinetes.xml'
 arquivo = 'gastos_cota'

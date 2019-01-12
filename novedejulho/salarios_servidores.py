@@ -4,7 +4,7 @@ import datetime
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests as req
-from novedejulho.toolbox import (save_files, sanitize_float)
+from toolbox import (save_files, sanitize_float)
 
 url_base = 'https://www.al.sp.gov.br/repositorio/folha-de-pagamento/'
 arquivo_base = 'folha-{}-{}-detalhada.html'
