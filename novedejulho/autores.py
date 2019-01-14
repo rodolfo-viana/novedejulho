@@ -2,7 +2,7 @@ import os
 from urllib.request import urlretrieve
 from zipfile import ZipFile
 
-from toolbox import (xml_df_internal, save_files)
+from ndj_toolbox.fetch import (xml_df_internal, save_files)
 
 URL = 'http://www.al.sp.gov.br/repositorioDados/processo_legislativo/documento_autor.zip'
 arquivo = 'autores_proposicoes'

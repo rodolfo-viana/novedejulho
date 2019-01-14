@@ -1,8 +1,3 @@
-# Este código é inspirado no script 'helpers.py', usado em serenata-toolbox,
-# componente da Operação Serenata de Amor. Conheça o projeto aqui:
-# https://github.com/okfn-brasil/serenata-de-amor
-# https://github.com/okfn-brasil/serenata-toolbox
-
 import os
 from datetime import datetime
 import xml.etree.ElementTree as ElementTree
@@ -84,9 +79,3 @@ def save_file(df, data_dir, name, extension):
 def save_files(df, data_dir, name):
     for extension in ('csv', 'xz'):
         save_file(df, data_dir, name, extension)
-
-
-# Utilitário para transformar em float e mudar de , para .
-
-def sanitize_float(item):
-    return float(item.get_text().strip().replace('.', '').replace(',', '.'))

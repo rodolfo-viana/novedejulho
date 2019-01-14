@@ -1,7 +1,7 @@
 import os
 import requests as req
 
-from toolbox import (xml_df, save_files)
+from ndj_toolbox.fetch import (xml_df, save_files)
 
 url = 'https://www.al.sp.gov.br/repositorioDados/deputados/deputados.xml'
 arquivo = 'deputados'
