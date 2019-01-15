@@ -12,10 +12,7 @@ Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abert
 
 ### Conteúdo
 
-Há quatro prontos para uso:
-
-- `deputados.py`<br>
-Retorna informações sobre os deputados estaduais, tais como nome, partido, telefone, e-mail, placa do veículo oficial...
+Há oito scripts prontos para uso. Eles estão na pasta `novedejulho`. Destacam-se:
 
 - `gasto_cota.py`<br>
 Retorna os gastos efetuados com o auxílio da verba de gabinete.
@@ -26,7 +23,7 @@ Retorna os salários dos servidores desde 2014.
 - `proposicoes.py`<br>
 Retorna as proposições dos deputados desde 2008.
 
-Os scripts rodam com o auxílio de `toolbox.py`. Apesar de estarem em funcionamento, os dados __não foram formatados ainda__ -- um script para isso está em desenvolvimento.
+Os scripts rodam com o auxílio de `fetch.py` e `format.py`, ambos na pasta `ndj_toolbox`. Apesar de estarem em funcionamento, os scripts retornam dados que ainda não estão plenamente formatados -- o `format.py` está em atualização para que isso ocorra o quanto antes.
 
 Outros scripts estão em produção, como para baixar contratos e convênios firmados com a Alesp.
 

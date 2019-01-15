@@ -6,7 +6,7 @@ Nove de Julho é um projeto escrito em Python. Para rodar os scripts são requis
 2. instalar os módulos necessários
 3. fazer o download dos scripts
 
-Saber programação não é requisito, e este tutorial explica como você pode usar os arquivos.
+__Saber programação não é requisito__, e este tutorial explica como você pode usar os arquivos.
 
 ### __Instalação de Python__
 
@@ -47,7 +47,7 @@ Com o passo a passo anterior concluído:
 3. Dentro de `novedejulho-master` digite `cd novedejulho`
 4. Dentro de `novedejulho` há os scripts. Para rodar, digite `python nomedoscript.py` (se não funcionar, digite `python3 nomedoscript.py`)
 5. Aguarde até o script terminar de processar
-6. Automaticamente será gerada a pasta `data`, com dois arquivos: um `.csv`, com os dados para serem abertos em processadores de planilhas como Excel e LibreOffice Calc, e um `.xz`, com os mesmo dados, mas para serem usados caso você pretenda trabalhar com Jupyter Notebook. Ambos os arquivos são idênticos.
+6. Automaticamente será gerada a pasta `data` contendo dois arquivos: um `.csv`, com os dados para serem abertos em processadores de planilhas como Excel e LibreOffice Calc, e um `.xz`, com os mesmo dados, mas para serem usados caso você pretenda trabalhar com Jupyter Notebook. Ambos os arquivos são idênticos.
 
 Qualquer dúvida, mande uma DM no Twitter para @rodolfoviana. Estarei lá para ajudar. :)
 
