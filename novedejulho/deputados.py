@@ -5,7 +5,7 @@ from ndj_toolbox.fetch import (xml_df, save_files)
 
 url = 'https://www.al.sp.gov.br/repositorioDados/deputados/deputados.xml'
 arquivo = 'deputados'
-data_dir = 'data/'
+data_dir = 'data'
 
 
 def create_dir():
@@ -32,8 +32,5 @@ def process_request():
 
 
 if __name__ == '__main__':
-    print(f'Criando e acessando a pasta {data_dir}...')
     create_dir()
-    print('Baixando e formatando os dados...')
     process_request()
-    print(f'Finalizado!\nDados salvos nos arquivos {arquivo}.csv e {arquivo}.xz.')

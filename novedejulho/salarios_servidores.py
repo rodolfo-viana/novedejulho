@@ -10,7 +10,7 @@ from ndj_toolbox.format import (sanitize_float)
 url_base = 'https://www.al.sp.gov.br/repositorio/folha-de-pagamento/'
 arquivo_base = 'folha-{}-{}-detalhada.html'
 arquivo = 'servidores_salarios'
-data_dir = 'data/'
+data_dir = 'data'
 ano_atual = datetime.datetime.now().year
 
 
