@@ -4,7 +4,7 @@ import requests as req
 from ndj_toolbox.fetch import (xml_df, save_files)
 
 url = 'https://www.al.sp.gov.br/repositorioDados/processo_legislativo/comissoes_permanentes_deliberacoes.xml'
-arquivo = 'comissoes_permanentes_deliberacoes'
+arquivo = 'comissoes_deliberacoes'
 data_dir = 'data'
 
 
