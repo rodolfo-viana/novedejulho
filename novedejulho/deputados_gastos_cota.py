@@ -2,6 +2,7 @@ import os
 import requests as req
 
 from ndj_toolbox.fetch import (xml_df, save_files)
+from ndj_toolbox.format import clean_expenses_categories
 
 url = 'http://www.al.sp.gov.br/repositorioDados/deputados/despesas_gabinetes.xml'
 arquivo = 'gastos_cota'
@@ -23,6 +24,7 @@ def process_request():
         'Ano': 'ano', 'Mes': 'mes', 'Tipo': 'tipo',
         'Fornecedor': 'fornecedor', 'CNPJ': 'cnpj', 'Valor': 'valor'
     })
+    clean_expenses_categories(dataset)
     save_files(dataset, data_dir, arquivo)
 
 
