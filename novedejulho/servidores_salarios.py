@@ -30,6 +30,7 @@ def fetch_data():
                                'outros_desconto', 'indenizacao'])
     for ano in range(2014, ano_atual + 1):
         for mes in range(1, 13):
+            mes = format(mes, '02d')
             url = url_base + arquivo_base.format(ano, mes)
             data = req.get(url).content
             soup = BeautifulSoup(data, 'html.parser')
