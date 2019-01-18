@@ -67,7 +67,7 @@ class xml_df_internal:
 # Utilitários para salvar os dados em csv comprimido e regular
 
 def save_file(df, data_dir, name, extension):
-    params = {'encoding': 'utf-8', 'index': False}
+    params = {'encoding': 'utf-8', 'index': False, 'sep': '\t'}
     if extension == 'xz':
         params['compression'] = 'xz'
 
