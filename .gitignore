@@ -110,3 +110,6 @@ pip-selfcheck.json
 
 # data folder
 */data/
+
+# Credentials
+*_credentials.json
