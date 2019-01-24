@@ -12,13 +12,16 @@ Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abert
 
 ### Conteúdo
 
-Há oito scripts prontos para uso. Eles estão na pasta `novedejulho`. Destacam-se:
+Há mais de uma dezena de scripts prontos para uso. Eles estão na pasta `novedejulho`. Destacam-se:
 
 - `gasto_cota.py`<br>
 Retorna os gastos efetuados com o auxílio da verba de gabinete.
 
 - `salarios_servidores.py`<br>
 Retorna os salários dos servidores desde 2014.
+
+- `servidores_lotacao_atual.py`<br>
+Retorna onde estão trabalhando os servidores da casa.
 
 - `proposicoes.py`<br>
 Retorna as proposições dos deputados desde 2008.
