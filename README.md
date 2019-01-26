@@ -37,8 +37,10 @@ __Não é preciso ter experiência com qualquer linguagem de programação para 
 ### To-do
 
 - [x] Criar script para gerar `.db`
-- [] Mudar demais scipts para que o `.csv` resultante tenha `\t` em vez de `,`
-- [] Inserir `delimiter=`\t` nas funções `csv.reader` e `csv.DictReader` do `get_db.py`
+
+- [ ] Mudar demais scipts para que o `.csv` resultante tenha `\t` em vez de `,`
+
+- [ ] Inserir `delimiter=`\t` nas funções `csv.reader` e `csv.DictReader` do `get_db.py`
 
 ### Licença MIT
 
