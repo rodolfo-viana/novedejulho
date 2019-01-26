@@ -1,6 +1,9 @@
 import os
 from datetime import datetime
 import xml.etree.ElementTree as ElementTree
+import glob
+import csv
+import sqlite3
 
 import pandas as pd
 
@@ -79,3 +82,22 @@ def save_file(df, data_dir, name, extension):
 def save_files(df, data_dir, name):
     for extension in ('csv', 'xz'):
         save_file(df, data_dir, name, extension)
+
+
+# Utilitário para criar db dos csv extraídos
+
+def generate_db():
+    for csvFile in glob.glob('data/*.csv'):
+        file_name = os.path.basename(csvFile)
+        with open(csvFile, mode='r', encoding='utf-8') as file_table:
+            reader = csv.DictReader(file_table, delimiter='\t')
+            fields = tuple(reader.fieldnames)
+            con = sqlite3.connect('data/novedejulho.db')
+            cur = con.cursor()
+            cur.execute(f"CREATE TABLE '{file_name}' {fields};")
+            reader_2 = csv.reader(file_table, delimiter='\t')
+            for i in reader_2:
+                i = tuple(i)
+                cur.execute(f"INSERT INTO '{file_name}' VALUES {i};")
+            con.commit()
+    con.close()
