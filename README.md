@@ -34,6 +34,12 @@ Outros scripts estão em produção, como para baixar contratos e convênios fir
 
 __Não é preciso ter experiência com qualquer linguagem de programação para usar os scripts.__ Basta seguir as instruções detalhadas [aqui](https://github.com/rodolfo-viana/novedejulho/blob/master/como_usar.md).
 
+### To-do
+
+[x] Criar script para gerar `.db`
+[] Mudar demais scipts para que o `.csv` resultante tenha `\t` em vez de `,`
+[] Inserir `delimiter=`\t` nas funções `csv.reader` e `csv.DictReader` do `get_db.py`
+
 ### Licença MIT
 
 Copyright (c) 2019 Rodolfo Viana
