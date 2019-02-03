@@ -2,6 +2,7 @@ import os
 import glob
 import csv
 import sqlite3
+import re
 
 
 def get_db():
@@ -15,7 +16,8 @@ def get_db():
             cur.execute(f"CREATE TABLE '{file_name}' {fields};")
             reader_2 = csv.reader(file_table)
             for i in reader_2:
-                i[5] = i[5].replace("'", "")
+                for x in range(len(i)):
+                    i[x] = i[x].replace("'", "")  # Para evitar conflito com a aspa de 'INSERT INTO'
                 i = tuple(i)
                 cur.execute(f"INSERT INTO '{file_name}' VALUES {i};")
             con.commit()
