@@ -41,6 +41,7 @@ __Não é preciso ter experiência com qualquer linguagem de programação para 
 - [ ] Implementar a função `get_db` no arquivo `format.py` (e eliminar `generate_db.py`)
 - [ ] Alterar a função `get_db` para inferir os tipos de dados
 - [ ] Refatorar as alterações nos demais scripts
+- [ ] Testar módulos mais ágeis que possam substituir `BeautifulSoup` (ver `servidores_salarios.py`)
 
 ### Licença MIT
 
