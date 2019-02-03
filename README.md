@@ -28,6 +28,8 @@ Retorna as proposições dos deputados desde 2008.
 
 Os scripts rodam com o auxílio de `fetch.py` e `format.py`, ambos na pasta `ndj_toolbox`. Apesar de estarem em funcionamento, os scripts retornam dados que ainda não estão plenamente formatados -- o `format.py` está em atualização para que isso ocorra o quanto antes.
 
+Além disso, há o `generate_db.py`, script auxiliar que converte todos os `csv` num único arquivo `db` para consulta com SQL.
+
 Outros scripts estão em produção, como para baixar contratos e convênios firmados com a Alesp.
 
 ### Como usar
@@ -36,9 +38,9 @@ __Não é preciso ter experiência com qualquer linguagem de programação para 
 
 ### To-do
 
-- [x] Criar script para gerar `.db`
-- [ ] Mudar demais scipts para que o `.csv` resultante tenha `\t` em vez de `,`
-- [ ] Inserir `delimiter=\t` nas funções `csv.reader` e `csv.DictReader` do `get_db.py`
+- [ ] Implementar a função `get_db` no arquivo `format.py` (e eliminar `generate_db.py`)
+- [ ] Alterar a função `get_db` para inferir os tipos de dados
+- [ ] Refatorar as alterações nos demais scripts
 
 ### Licença MIT
 
