@@ -1,36 +1,30 @@
-import os
 import requests as req
 
 from ndj_toolbox.fetch import (xml_df, save_files)
 
-url = 'https://www.al.sp.gov.br/repositorioDados/deputados/deputados.xml'
-arquivo = 'deputados'
-data_dir = 'data'
+url_base = 'https://www.al.sp.gov.br/repositorioDados/'
+url_file = 'deputados/deputados.xml'
+url = url_base + url_file
 
 
-def create_dir():
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
-
-
-def process_request():
+def process_deputados():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
-    dataset = dataset[['NomeParlamentar', 'Matricula', 'IdDeputado',
-                       'IdSPL', 'IdUA', 'Partido', 'Sala', 'Andar',
-                       'Telefone', 'Email', 'PlacaVeiculo',
-                       'Aniversario', 'Situacao']]
+    dataset = dataset[[
+        'NomeParlamentar', 'Matricula', 'IdDeputado', 'IdSPL', 'IdUA',
+        'Partido', 'Sala', 'Andar', 'Telefone', 'Email', 'PlacaVeiculo',
+        'Aniversario', 'Situacao'
+    ]]
     dataset = dataset.rename(columns={
-        'NomeParlamentar': 'nome', 'Matricula': 'matricula',
-        'IdDeputado': 'id', 'IdSPL': 'id_spl', 'IdUA': 'id_unid_admin',
-        'Partido': 'partido', 'Sala': 'sala', 'Andar': 'andar',
-        'Telefone': 'telefone', 'Email': 'email',
+        'NomeParlamentar': 'nm_deputado', 'Matricula': 'nr_matricula',
+        'IdDeputado': 'id_deputado', 'IdSPL': 'id_spl',
+        'IdUA': 'id_unid_admin', 'Partido': 'sg_partido', 'Sala': 'sala',
+        'Andar': 'andar', 'Telefone': 'telefone', 'Email': 'email',
         'PlacaVeiculo': 'placa_carro', 'Aniversario': 'aniversario',
         'Situacao': 'status'
     })
-    save_files(dataset, data_dir, arquivo)
+    save_files(dataset, 'data', 'deputados')
 
 
 if __name__ == '__main__':
-    create_dir()
-    process_request()
+    process_deputados()

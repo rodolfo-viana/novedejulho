@@ -1,35 +1,27 @@
-import os
 import requests as req
 
 from ndj_toolbox.fetch import (xml_df, save_files)
 
-URL = 'http://www.al.sp.gov.br/repositorioDados/processo_legislativo/comissoes_permanentes_presencas.xml'
-arquivo = 'comissoes_presenca'
-data_dir = 'data'
+url_base = 'https://www.al.sp.gov.br/repositorioDados/'
+url_file = 'processo_legislativo/comissoes_permanentes_presencas.xml'
+url = url_base + url_file
 
-def create_dir():
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
 
-def process_request():
-  xml_data = req.get(URL).content
-  dataset = xml_df(xml_data).process_data()
-  dataset = dataset[[
-    'IdReuniao', 'IdPauta', 'IdDeputado',
-    'Deputado', 'IdComissao', 'SiglaComissao',
-    'DataReuniao'
-  ]]
-  dataset = dataset.rename(columns={
-    'IdReuniao': 'id_reuniao',
-    'IdPauta': 'id_pauta',
-    'IdDeputado': 'id_deputado',
-    'Deputado': 'nome_deputado',
-    'IdComissao': 'id_comissao',
-    'SiglaComissao': 'siga_comissao',
-    'DataReuniao': 'data_comissao'
-  })
-  save_files(dataset, data_dir, arquivo)
+def process_comissoes_presencas():
+    xml_data = req.get(url).content
+    dataset = xml_df(xml_data).process_data()
+    dataset = dataset[[
+        'IdReuniao', 'IdPauta', 'IdDeputado', 'Deputado',
+        'IdComissao', 'SiglaComissao', 'DataReuniao'
+    ]]
+    dataset = dataset.rename(columns={
+        'IdReuniao': 'id_reuniao', 'IdPauta': 'id_pauta',
+        'IdDeputado': 'id_deputado', 'Deputado': 'nm_deputado',
+        'IdComissao': 'id_comissao', 'SiglaComissao': 'sg_comissao',
+        'DataReuniao': 'dt_comissao'
+    })
+    save_files(dataset, 'data', 'comissoes_presencas')
+
 
 if __name__ == '__main__':
-  create_dir()
-  process_request()
+    process_comissoes_presencas()

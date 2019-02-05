@@ -1,4 +1,3 @@
-import os
 import datetime
 
 import pandas as pd
@@ -7,36 +6,30 @@ import requests as req
 from ndj_toolbox.fetch import (save_files)
 from ndj_toolbox.format import (sanitize_float)
 
-url_base = 'https://www.al.sp.gov.br/repositorio/folha-de-pagamento/'
-arquivo_base = 'folha-{}-{}-detalhada.html'
-arquivo = 'servidores_salarios'
-data_dir = 'data'
 ano_atual = datetime.datetime.now().year
 
+cols = [
+    'nm_funcionario', 'ano', 'mes', 'vlr_bruto', 'vlr_liquido', 'tributos',
+    'abono_permanencia', 'ferias_bruto', 'ferias_liquido', 'ferias_desconto',
+    '13_bruto', '13_liquido', '13_desconto', 'retroativo_bruto',
+    'retroativo_liquido', 'retroativo_desconto', 'outros_bruto',
+    'outros_desconto', 'indenizacao'
+]
 
-def create_dir():
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
 
-
-def fetch_data():
-    df = pd.DataFrame(columns=['nome', 'ano', 'mes', 'vlr_bruto',
-                               'vlr_liquido', 'tributos',
-                               'abono_permanencia', 'ferias_bruto',
-                               'ferias_liquido', 'ferias_desconto',
-                               '13_bruto', '13_liquido', '13_desconto',
-                               'retroativo_bruto', 'retroativo_liquido',
-                               'retroativo_desconto', 'outros_bruto',
-                               'outros_desconto', 'indenizacao'])
+def process_servidores_salarios():
+    df = pd.DataFrame(columns=cols)
     for ano in range(2014, ano_atual + 1):
         for mes in range(1, 13):
             mes = format(mes, '02d')
-            url = url_base + arquivo_base.format(ano, mes)
+            url_base = 'https://www.al.sp.gov.br/repositorio/'
+            url_file = f'folha-de-pagamento/folha-{ano}-{mes}-detalhada.html'
+            url = url_base + url_file
             data = req.get(url).content
             soup = BeautifulSoup(data, 'html.parser')
             for tr in soup.find_all('tr')[1:]:
                 tds = tr.find_all('td')
-                dicionario = {'nome': tds[0].get_text().strip(),
+                dicionario = {'nm_funcionario': tds[0].get_text().strip(),
                               'ano': ano,
                               'mes': mes,
                               'vlr_bruto': sanitize_float(tds[1]),
@@ -57,9 +50,8 @@ def fetch_data():
                               'indenizacao': sanitize_float(tds[16])
                               }
                 df = df.append(dicionario, ignore_index=True)
-    save_files(df, data_dir, arquivo)
+    save_files(df, 'data', 'servidores_salarios')
 
 
 if __name__ == '__main__':
-    create_dir()
-    fetch_data()
+    process_servidores_salarios()

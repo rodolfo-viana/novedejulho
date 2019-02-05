@@ -1,34 +1,28 @@
-import os
 import requests as req
 
 from ndj_toolbox.fetch import (xml_df, save_files)
 from ndj_toolbox.format import (clean_expenses_categories)
 
-url = 'http://www.al.sp.gov.br/repositorioDados/deputados/despesas_gabinetes.xml'
-arquivo = 'gastos_cota'
-data_dir = 'data'
+url_base = 'https://www.al.sp.gov.br/repositorioDados/'
+url_file = 'deputados/despesas_gabinetes.xml'
+url = url_base + url_file
 
 
-def create_dir():
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
-
-
-def process_request():
+def process_deputados_gastos_cota():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
-    dataset = dataset[['Deputado', 'Matricula', 'Ano', 'Mes',
-                       'Tipo', 'Fornecedor', 'CNPJ', 'Valor']]
+    dataset = dataset[[
+        'Deputado', 'Matricula', 'Ano', 'Mes', 'Tipo', 'Fornecedor',
+        'CNPJ', 'Valor'
+    ]]
     dataset = dataset.rename(columns={
-        'Deputado': 'deputado', 'Matricula': 'matricula',
-        'Ano': 'ano', 'Mes': 'mes', 'Tipo': 'tipo',
-        'Fornecedor': 'fornecedor', 'CNPJ': 'cnpj', 'Valor': 'valor'
+        'Deputado': 'nm_deputado', 'Matricula': 'nr_matricula',
+        'Ano': 'ano', 'Mes': 'mes', 'Tipo': 'tp_categoria',
+        'Fornecedor': 'nm_fornecedor', 'CNPJ': 'nr_cnpj', 'Valor': 'valor'
     })
     clean_expenses_categories(dataset)
-    # sanitize_txt(dataset)
-    save_files(dataset, data_dir, arquivo)
+    save_files(dataset, 'data', 'deputados_gastos_cota')
 
 
 if __name__ == '__main__':
-    create_dir()
-    process_request()
+    process_deputados_gastos_cota()
