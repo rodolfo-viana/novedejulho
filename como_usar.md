@@ -45,9 +45,9 @@ Com o passo a passo anterior concluído:
 1. Abra o Terminal (MacOS e Linux) ou o Prompt de Comando (Windows)
 2. Vá até a pasta `novedejulho-master`
 3. Dentro de `novedejulho-master` digite `cd novedejulho`
-4. Dentro de `novedejulho` há os scripts. Para rodar, digite `python nomedoscript.py` (se não funcionar, digite `python3 nomedoscript.py`)
-5. Aguarde até o script terminar de processar
-6. Automaticamente será gerada a pasta `data` contendo dois arquivos: um `.csv`, com os dados para serem abertos em processadores de planilhas como Excel e LibreOffice Calc, e um `.xz`, com os mesmo dados, mas para serem usados caso você pretenda trabalhar com Jupyter Notebook. Ambos os arquivos são idênticos.
+4. Dentro de `novedejulho`, digite `python novejulho.py` (se não funcionar, digite `python3 novedejulho.py`)
+5. Aguarde até o script terminar de processar -- leva cerca de 7 minutos.
+6. Automaticamente será gerada a pasta `data` contendo dois tipos de arquivos: `.csv`, com os dados para serem abertos em processadores de planilhas como Excel e LibreOffice Calc, e `.xz`, com os mesmo dados, mas para serem usados caso você pretenda trabalhar com Jupyter Notebook. Ambos os arquivos são idênticos. Além disso, há um arquivo `novedejulho.db`, com todos os dados de todos os scripts agregados para leitura com SQL.
 
 Qualquer dúvida, mande uma DM no Twitter para @rodolfoviana. Estarei lá para ajudar. :)
 
