@@ -4,7 +4,7 @@ Nove de Julho é um projeto open-source de ativismo cívico com foco na Assemble
 
 Seu objetivo é agregar e formatar conjuntos de dados da Alesp, como gastos na cota parlamentar, proposições apresentadas, leis aprovadas, presenças em sessões, andamento de comissões, lista de funcionários, salários, entre outros.
 
-Com desenvolvimento iniciado em janeiro de 2019, Nove de Julho é desenvolvido por [rodolfo-viana](https://github.com/rodolfo-viana), com a colaboração de [cuducos](https://github.com/cuducos) e [jtemporal](https://github.com/jtemporal).
+Com desenvolvimento iniciado em janeiro de 2019, Nove de Julho é desenvolvido por [rodolfo-viana](https://github.com/rodolfo-viana), e contou com a colaboração de [cuducos](https://github.com/cuducos), [jtemporal](https://github.com/jtemporal) e [Vnicius](https://github.com/Vnicius).
 
 ### Fonte dos dados
 
@@ -26,9 +26,10 @@ Retorna onde estão trabalhando os servidores da casa.
 - `proposicoes.py`<br>
 Retorna as proposições dos deputados desde 2008.
 
-Os scripts rodam com o auxílio de `fetch.py` e `format.py`, ambos na pasta `ndj_toolbox`. Apesar de estarem em funcionamento, os scripts retornam dados que ainda não estão plenamente formatados -- o `format.py` está em atualização para que isso ocorra o quanto antes.
+- `novedejulho.py`<br>
+Retorna todos os dados dos demais scripts, além de converter os datasets para `.db`
 
-Além disso, há o `generate_db.py`, script auxiliar que converte todos os `csv` num único arquivo `db` para consulta com SQL.
+Os scripts rodam com o auxílio de `fetch.py` e `format.py`, ambos na pasta `ndj_toolbox`. Apesar de estarem em funcionamento, os scripts retornam dados que ainda não estão plenamente formatados -- o `format.py` está em atualização para que isso ocorra o quanto antes.
 
 Outros scripts estão em produção, como para baixar contratos e convênios firmados com a Alesp.
 
@@ -38,7 +39,7 @@ __Não é preciso ter experiência com qualquer linguagem de programação para 
 
 ### To-do
 
-- [ ] Implementar a função `get_db` no arquivo `format.py` (e eliminar `generate_db.py`)
+- [x] Implementar a função `generate_db` no arquivo `format.py` (e eliminar `generate_db.py`)
 - [ ] Alterar a função `get_db` para inferir os tipos de dados
 - [ ] Refatorar as alterações nos demais scripts
 - [ ] Testar módulos mais ágeis que possam substituir `BeautifulSoup` (ver `servidores_salarios.py`)
