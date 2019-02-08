@@ -3,8 +3,8 @@ import glob
 import csv
 import sqlite3
 
-# Utilitário para transformar em float e converter vírgula em ponto
 
+# Utilitário para transformar em float e converter vírgula em ponto
 
 def sanitize_float(item):
     return float(item.get_text().strip().replace('.', '').replace(',', '.'))

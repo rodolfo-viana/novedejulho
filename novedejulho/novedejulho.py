@@ -1,10 +1,9 @@
 import os
-from timeit import default_timer as timer
+from time import time
 
 from ndj_toolbox.format import generate_db
 
-# 'servidores_salarios.py' está sendo ignorado até que BeautifulSoup seja substituído
-IGNORE_LIST = ['__init__.py', 'novedejulho.py', 'servidores_salarios.py']
+IGNORE_LIST = ['__init__.py', 'novedejulho.py']
 
 data_dir = 'data'
 
@@ -24,11 +23,11 @@ def retrieve_files():
 
 
 if __name__ == '__main__':
-    start = timer()
+    start = time()
     print(f"Criando o diretório {data_dir}...")
     create_dir()
     retrieve_files()
     print("Agregando tabelas no arquivo novedejulho.db...")
     generate_db()
-    end = timer()
+    end = time()
     print(f"Os dados estão na pasta {data_dir}.\nFinalizado em {end - start} segundos.")
