@@ -15,7 +15,7 @@ def process_proposicoes_natureza():
         'idNatureza': 'id_natureza', 'nmNatureza': 'nm_natureza',
         'sgNatureza': 'sg_natureza', 'tpNatureza': 'tp_natureza'
     })
-    save_files(dataset, 'data', 'proposicoes_natureza')
+    save_files(dataset, 'data', 'indice_proposicoes_natureza')
 
 
 if __name__ == '__main__':

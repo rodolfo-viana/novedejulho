@@ -19,7 +19,7 @@ def process_comissoes():
         'SiglaComissao': 'sg_comissao', 'DescricaoComissao': 'ds_comissao',
         'DataFimComissao': 'dt_fim_comissao',
     })
-    save_files(dataset, 'data', 'comissoes')
+    save_files(dataset, 'data', 'indice_comissoes')
 
 
 if __name__ == '__main__':

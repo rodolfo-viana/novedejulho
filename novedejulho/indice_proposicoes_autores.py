@@ -4,7 +4,7 @@ from zipfile import ZipFile
 
 from ndj_toolbox.fetch import (xml_df_internal, save_files)
 
-url_base = 'http://www.al.sp.gov.br/repositorioDados/'
+url_base = 'https://www.al.sp.gov.br/repositorioDados/'
 url_file = 'processo_legislativo/documento_autor.zip'
 url = url_base + url_file
 
@@ -22,11 +22,10 @@ def process_proposicoes_autores():
     dataset = xml_df_internal(xml_data).process_data()
     dataset = dataset[['IdAutor', 'IdDocumento', 'NomeAutor']]
     dataset = dataset.rename(columns={
-        'IdDocumento': 'id_proposicao',
-        'IdAutor': 'id_autor',
+        'IdDocumento': 'id_proposicao', 'IdAutor': 'id_autor',
         'NomeAutor': 'nm_autor'
     })
-    save_files(dataset, 'data', 'proposicoes_autores')
+    save_files(dataset, 'data', 'indice_proposicoes_autores')
     os.remove(xml_data)
 
 

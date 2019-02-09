@@ -23,7 +23,7 @@ def process_deputados():
         'PlacaVeiculo': 'placa_carro', 'Aniversario': 'aniversario',
         'Situacao': 'status'
     })
-    save_files(dataset, 'data', 'deputados')
+    save_files(dataset, 'data', 'indice_deputados')
 
 
 if __name__ == '__main__':
