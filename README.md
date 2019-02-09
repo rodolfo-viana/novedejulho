@@ -35,14 +35,13 @@ Outros scripts estão em produção, como para baixar contratos e convênios fir
 
 ### Como usar
 
-__Não é preciso ter experiência com qualquer linguagem de programação para usar os scripts.__ Basta seguir as instruções detalhadas [aqui](https://github.com/rodolfo-viana/novedejulho/blob/master/como_usar.md).
+__Não é preciso ter experiência com qualquer linguagem de programação para usar os scripts.__ Basta seguir as instruções detalhadas [aqui](https://github.com/rodolfo-viana/novedejulho/blob/master/INSTRUCOES_DE_USO.md).
 
 ### To-do
 
-- [x] Implementar a função `generate_db` no arquivo `format.py` (e eliminar `generate_db.py`)
-- [ ] Alterar a função `get_db` para inferir os tipos de dados
-- [ ] Refatorar as alterações nos demais scripts
-- [ ] Testar módulos mais ágeis que possam substituir `BeautifulSoup` (ver `servidores_salarios.py`)
+- [ ] Alterar a função `generate_db` para inferir os tipos de dados
+- [ ] Mapear o que mais pode ser raspado do site
+- [ ] Criar scripts para os demais conjuntos que chegam como `.zip`
 
 ### Licença MIT
 
