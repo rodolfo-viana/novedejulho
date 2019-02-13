@@ -23,5 +23,9 @@ def process_proposicoes_palavras():
     save_files(dataset, 'data', 'indice_proposicoes_palavras-chave')
 
 
-if __name__ == '__main__':
+def main():
     process_proposicoes_palavras()
+
+
+if __name__ == '__main__':
+    main()

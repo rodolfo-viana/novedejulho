@@ -29,6 +29,10 @@ def process_proposicoes_autores():
     os.remove(xml_data)
 
 
-if __name__ == '__main__':
+def main():
     fetch_data()
     process_proposicoes_autores()
+
+
+if __name__ == '__main__':
+    main()

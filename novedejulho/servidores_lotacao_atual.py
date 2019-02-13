@@ -23,5 +23,9 @@ def process_servidores_lotacao_atual():
     save_files(dataset, 'data', 'servidores_lotacao_atual')
 
 
-if __name__ == '__main__':
+def main():
     process_servidores_lotacao_atual()
+
+
+if __name__ == '__main__':
+    main()

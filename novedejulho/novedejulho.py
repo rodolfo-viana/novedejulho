@@ -18,8 +18,10 @@ def retrieve_files():
     files = [f for f in files if '.py' in f and f not in IGNORE_LIST]
 
     for f in sorted(files):
-        os.system(f'python {f}')  # Precisa achar uma forma de rodar assim OU com 'python3'
-        print(f"Fazendo o download de {f.replace('.py', '')}...")
+        module_name = f.replace('.py', '')
+        module = __import__(module_name)
+        module.main()
+        print(f"Fazendo o download de {module_name}...")
 
 
 if __name__ == '__main__':
@@ -30,4 +32,5 @@ if __name__ == '__main__':
     print("Agregando tabelas no arquivo novedejulho.db...")
     generate_db()
     end = time()
-    print(f"Os dados estão na pasta {data_dir}.\nFinalizado em {end - start} segundos.")
+    print(
+        f"Os dados estão na pasta {data_dir}.\nFinalizado em {end - start} segundos.")

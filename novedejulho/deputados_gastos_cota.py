@@ -24,5 +24,9 @@ def process_deputados_gastos_cota():
     save_files(dataset, 'data', 'deputados_gastos_cota')
 
 
-if __name__ == '__main__':
+def main():
     process_deputados_gastos_cota()
+
+
+if __name__ == '__main__':
+    main()

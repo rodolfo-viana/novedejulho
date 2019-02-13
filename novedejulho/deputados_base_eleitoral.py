@@ -18,5 +18,9 @@ def process_deputados_base_eleitoral():
     save_files(dataset, 'data', 'deputados_base_eleitoral')
 
 
-if __name__ == '__main__':
+def main():
     process_deputados_base_eleitoral()
+
+
+if __name__ == '__main__':
+    main()

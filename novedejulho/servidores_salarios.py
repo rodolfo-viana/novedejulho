@@ -56,5 +56,9 @@ def process_servidores_salarios():
                                  })
 
 
-if __name__ == '__main__':
+def main():
     process_servidores_salarios()
+
+
+if __name__ == '__main__':
+    main()

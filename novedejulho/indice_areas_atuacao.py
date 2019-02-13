@@ -15,5 +15,9 @@ def process_areas_atuacao():
     save_files(dataset, 'data', 'indice_areas_atuacao')
 
 
-if __name__ == '__main__':
+def main():
     process_areas_atuacao()
+
+
+if __name__ == '__main__':
+    main()

@@ -22,5 +22,9 @@ def process_comissoes():
     save_files(dataset, 'data', 'indice_comissoes')
 
 
-if __name__ == '__main__':
+def main():
     process_comissoes()
+
+
+if __name__ == '__main__':
+    main()

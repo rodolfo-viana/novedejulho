@@ -17,5 +17,9 @@ def process_partidos():
     save_files(dataset, 'data', 'indice_partidos')
 
 
-if __name__ == '__main__':
+def main():
     process_partidos()
+
+
+if __name__ == '__main__':
+    main()

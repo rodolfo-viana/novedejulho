@@ -28,6 +28,10 @@ def process_proposicoes_palavras():
     os.remove(xml_data)
 
 
-if __name__ == '__main__':
+def main():
     fetch_data()
     process_proposicoes_palavras()
+
+
+if __name__ == '__main__':
+    main()

@@ -26,5 +26,9 @@ def process_deputados():
     save_files(dataset, 'data', 'indice_deputados')
 
 
-if __name__ == '__main__':
+def main():
     process_deputados()
+
+
+if __name__ == '__main__':
+    main()
