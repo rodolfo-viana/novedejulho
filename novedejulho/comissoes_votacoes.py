@@ -23,5 +23,9 @@ def process_comissoes_votacoes():
     save_files(dataset, 'data', 'comissoes_votacoes')
 
 
-if __name__ == '__main__':
+def main():
     process_comissoes_votacoes()
+
+
+if __name__ == '__main__':
+    main()

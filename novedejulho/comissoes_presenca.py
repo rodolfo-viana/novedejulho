@@ -23,5 +23,9 @@ def process_comissoes_presencas():
     save_files(dataset, 'data', 'comissoes_presencas')
 
 
-if __name__ == '__main__':
+def main():
     process_comissoes_presencas()
+
+
+if __name__ == '__main__':
+    main()

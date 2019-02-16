@@ -23,5 +23,9 @@ def process_servidores_cargos():
     save_files(dataset, 'data', 'servidores_cargos')
 
 
-if __name__ == '__main__':
+def main():
     process_servidores_cargos()
+
+
+if __name__ == '__main__':
+    main()

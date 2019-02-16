@@ -15,5 +15,9 @@ def process_bases_eleitorais():
     save_files(dataset, 'data', 'indice_bases_eleitorais')
 
 
-if __name__ == '__main__':
+def main():
     process_bases_eleitorais()
+
+
+if __name__ == '__main__':
+    main()

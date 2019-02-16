@@ -18,5 +18,9 @@ def process_proposicoes_natureza():
     save_files(dataset, 'data', 'indice_proposicoes_natureza')
 
 
-if __name__ == '__main__':
+def main():
     process_proposicoes_natureza()
+
+
+if __name__ == '__main__':
+    main()

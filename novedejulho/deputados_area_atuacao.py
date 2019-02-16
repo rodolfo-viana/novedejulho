@@ -17,5 +17,9 @@ def process_deputados_area_atuacao():
     save_files(dataset, 'data', 'deputados_area_atuacao')
 
 
-if __name__ == '__main__':
+def main():
     process_deputados_area_atuacao()
+
+
+if __name__ == '__main__':
+    main()
