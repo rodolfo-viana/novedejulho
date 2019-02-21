@@ -1,26 +1,24 @@
+import os
 from datetime import datetime
 import csv
 
 from bs4 import BeautifulSoup
 import requests as req
+import pandas as pd
 from ndj_toolbox.format import sanitize_float
-
-ano_atual = datetime.now().year
-
-hoje = datetime.strftime(datetime.now(), '%Y-%m-%d')
-
-arquivo = f'data/{hoje}-servidores_salarios.csv'
-
-cols = [
-    'nm_funcionario', 'ano', 'mes', 'vlr_bruto', 'vlr_liquido', 'tributos',
-    'abono_permanencia', 'ferias_bruto', 'ferias_liquido', 'ferias_desconto',
-    '13_bruto', '13_liquido', '13_desconto', 'retroativo_bruto',
-    'retroativo_liquido', 'retroativo_desconto', 'outros_bruto',
-    'outros_desconto', 'indenizacao'
-]
+from ndj_toolbox.fetch import save_files
 
 
-def process_servidores_salarios():
+def main():
+    cols = [
+        'nm_funcionario', 'ano', 'mes', 'vlr_bruto', 'vlr_liquido', 'tributos',
+        'abono_permanencia', 'ferias_bruto', 'ferias_liquido',
+        'ferias_desconto', '13_bruto', '13_liquido', '13_desconto',
+        'retroativo_bruto', 'retroativo_liquido', 'retroativo_desconto',
+        'outros_bruto', 'outros_desconto', 'indenizacao'
+    ]
+
+    ano_atual = datetime.now().year
     for ano in range(2014, ano_atual + 1):
         for mes in range(1, 13):
             mes = format(mes, '02d')
@@ -29,14 +27,13 @@ def process_servidores_salarios():
             url = url_base + url_file
             data = req.get(url).content
             soup = BeautifulSoup(data, 'html.parser')
-            with open(arquivo, 'a') as file:
+            with open('temp.csv', 'a') as file:
                 dw = csv.DictWriter(file, fieldnames=cols, lineterminator='\n')
                 dw.writeheader()
                 for tr in soup.find_all('tr')[1:]:
                     tds = tr.find_all('td')
                     dw.writerow({'nm_funcionario': tds[0].get_text().strip(),
-                                 'ano': ano,
-                                 'mes': mes,
+                                 'ano': ano, 'mes': mes,
                                  'vlr_bruto': sanitize_float(tds[1]),
                                  'vlr_liquido': sanitize_float(tds[2]),
                                  'tributos': sanitize_float(tds[3]),
@@ -55,9 +52,9 @@ def process_servidores_salarios():
                                  'indenizacao': sanitize_float(tds[16])
                                  })
 
-
-def main():
-    process_servidores_salarios()
+    dataset = pd.read_csv('temp.csv')
+    save_files(dataset, 'salarios_servidores')
+    os.remove('temp.csv')
 
 
 if __name__ == '__main__':

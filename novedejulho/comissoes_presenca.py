@@ -7,7 +7,7 @@ url_file = 'processo_legislativo/comissoes_permanentes_presencas.xml'
 url = url_base + url_file
 
 
-def process_comissoes_presencas():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -20,11 +20,7 @@ def process_comissoes_presencas():
         'IdComissao': 'id_comissao', 'SiglaComissao': 'sg_comissao',
         'DataReuniao': 'dt_comissao'
     })
-    save_files(dataset, 'data', 'comissoes_presencas')
-
-
-def main():
-    process_comissoes_presencas()
+    save_files(dataset, 'comissoes_presencas')
 
 
 if __name__ == '__main__':

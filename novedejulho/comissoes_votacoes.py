@@ -7,7 +7,7 @@ url_file = 'processo_legislativo/comissoes_permanentes_votacoes.xml'
 url = url_base + url_file
 
 
-def process_comissoes_votacoes():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -20,11 +20,7 @@ def process_comissoes_votacoes():
         'IdDeputado': 'id_deputado', 'Deputado': 'nm_deputado',
         'TipoVoto': 'tp_voto', 'Voto': 'voto'
     })
-    save_files(dataset, 'data', 'comissoes_votacoes')
-
-
-def main():
-    process_comissoes_votacoes()
+    save_files(dataset, 'comissoes_votacoes')
 
 
 if __name__ == '__main__':

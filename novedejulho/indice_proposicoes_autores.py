@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from urllib.request import urlretrieve
 from zipfile import ZipFile
 
@@ -9,29 +10,25 @@ url_file = 'processo_legislativo/documento_autor.zip'
 url = url_base + url_file
 
 
-def fetch_data():
-    urlretrieve(url, 'data/documento_autor.zip')
-    zip_file = ZipFile('data/documento_autor.zip', 'r')
-    zip_file.extractall('data')
+def main():
+    hoje = datetime.strftime(datetime.now(), '%Y-%m-%d')
+    DATA_DIR = f'data_{hoje}'
+
+    urlretrieve(url, f'{DATA_DIR}/documento_autor.zip')
+    zip_file = ZipFile(f'{DATA_DIR}/documento_autor.zip', 'r')
+    zip_file.extractall(f'{DATA_DIR}')
     zip_file.close()
-    os.remove('data/documento_autor.zip')
+    os.remove(f'{DATA_DIR}/documento_autor.zip')
 
-
-def process_proposicoes_autores():
-    xml_data = 'data/documento_autor.xml'
+    xml_data = f'{DATA_DIR}/documento_autor.xml'
     dataset = xml_df_internal(xml_data).process_data()
     dataset = dataset[['IdAutor', 'IdDocumento', 'NomeAutor']]
     dataset = dataset.rename(columns={
         'IdDocumento': 'id_proposicao', 'IdAutor': 'id_autor',
         'NomeAutor': 'nm_autor'
     })
-    save_files(dataset, 'data', 'indice_proposicoes_autores')
+    save_files(dataset, 'indice_proposicoes_autores')
     os.remove(xml_data)
-
-
-def main():
-    fetch_data()
-    process_proposicoes_autores()
 
 
 if __name__ == '__main__':

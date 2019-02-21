@@ -7,7 +7,7 @@ url_file = 'administracao/funcionarios_lotacoes.xml'
 url = url_base + url_file
 
 
-def process_servidores_lotacoes_historico():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -17,11 +17,7 @@ def process_servidores_lotacoes_historico():
         'NomeFuncionario': 'nm_funcionario', 'NomeUA': 'nm_unid_admin',
         'IdUA': 'id_unid_admin', 'DataInicio': 'dt_inicio', 'DataFim': 'dt_fim'
     })
-    save_files(dataset, 'data', 'servidores_lotacoes_historico')
-
-
-def main():
-    process_servidores_lotacoes_historico()
+    save_files(dataset, 'servidores_lotacoes_historico')
 
 
 if __name__ == '__main__':

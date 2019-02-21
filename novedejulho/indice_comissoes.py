@@ -7,7 +7,7 @@ url_file = 'processo_legislativo/comissoes.xml'
 url = url_base + url_file
 
 
-def process_comissoes():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -19,11 +19,7 @@ def process_comissoes():
         'SiglaComissao': 'sg_comissao', 'DescricaoComissao': 'ds_comissao',
         'DataFimComissao': 'dt_fim_comissao',
     })
-    save_files(dataset, 'data', 'indice_comissoes')
-
-
-def main():
-    process_comissoes()
+    save_files(dataset, 'indice_comissoes')
 
 
 if __name__ == '__main__':

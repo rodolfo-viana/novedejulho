@@ -7,7 +7,7 @@ url_file = 'processo_legislativo/comissoes_membros.xml'
 url = url_base + url_file
 
 
-def process_comissoes_membros():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -20,11 +20,7 @@ def process_comissoes_membros():
         'Papel': 'ds_papel', 'IdPapel': 'id_papel', 'Efetivo': 'efetivo',
         'DataInicio': 'dt_inicio', 'DataFim': 'dt_fim'
     })
-    save_files(dataset, 'data', 'comissoes_membros')
-
-
-def main():
-    process_comissoes_membros()
+    save_files(dataset, 'comissoes_membros')
 
 
 if __name__ == '__main__':

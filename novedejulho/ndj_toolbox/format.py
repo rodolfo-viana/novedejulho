@@ -2,6 +2,7 @@ import os
 import glob
 import csv
 import sqlite3
+from datetime import datetime
 
 
 # Utilitário para transformar em float e converter vírgula em ponto
@@ -33,12 +34,14 @@ def clean_expenses_categories(df):
 # Utiliários para criar e popular database
 
 def generate_db():
-    for csvFile in glob.glob('data/*.csv'):
+    hoje = datetime.strftime(datetime.now(), '%Y-%m-%d')
+    DATA_DIR = f'data_{hoje}'
+    for csvFile in glob.glob(f'{DATA_DIR}/*.csv'):
         file_name = os.path.basename(csvFile)
         with open(csvFile, mode='r', encoding='utf-8') as file_table:
             reader = csv.DictReader(file_table)
             fields = tuple(reader.fieldnames)
-            con = sqlite3.connect('data/novedejulho.db')
+            con = sqlite3.connect(f'{DATA_DIR}/novedejulho.db')
             cur = con.cursor()
             cur.execute(f"CREATE TABLE '{file_name}' {fields};")
             reader_2 = csv.reader(file_table)

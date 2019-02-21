@@ -7,7 +7,7 @@ url_file = 'deputados/deputados.xml'
 url = url_base + url_file
 
 
-def process_deputados():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -23,11 +23,7 @@ def process_deputados():
         'PlacaVeiculo': 'placa_carro', 'Aniversario': 'aniversario',
         'Situacao': 'status'
     })
-    save_files(dataset, 'data', 'indice_deputados')
-
-
-def main():
-    process_deputados()
+    save_files(dataset, 'indice_deputados')
 
 
 if __name__ == '__main__':

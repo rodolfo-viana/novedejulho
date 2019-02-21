@@ -7,7 +7,7 @@ url_file = 'processo_legislativo/naturezasSpl.xml'
 url = url_base + url_file
 
 
-def process_proposicoes_natureza():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[['idNatureza', 'nmNatureza', 'sgNatureza', 'tpNatureza']]
@@ -15,11 +15,7 @@ def process_proposicoes_natureza():
         'idNatureza': 'id_natureza', 'nmNatureza': 'nm_natureza',
         'sgNatureza': 'sg_natureza', 'tpNatureza': 'tp_natureza'
     })
-    save_files(dataset, 'data', 'indice_proposicoes_natureza')
-
-
-def main():
-    process_proposicoes_natureza()
+    save_files(dataset, 'indice_proposicoes_natureza')
 
 
 if __name__ == '__main__':

@@ -1,14 +1,14 @@
 import requests as req
 
 from ndj_toolbox.fetch import (xml_df, save_files)
-from ndj_toolbox.format import (clean_expenses_categories)
+from ndj_toolbox.format import clean_expenses_categories
 
 url_base = 'https://www.al.sp.gov.br/repositorioDados/'
 url_file = 'deputados/despesas_gabinetes.xml'
 url = url_base + url_file
 
 
-def process_deputados_gastos_cota():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -21,11 +21,7 @@ def process_deputados_gastos_cota():
         'Fornecedor': 'nm_fornecedor', 'CNPJ': 'nr_cnpj', 'Valor': 'valor'
     })
     clean_expenses_categories(dataset)
-    save_files(dataset, 'data', 'deputados_gastos_cota')
-
-
-def main():
-    process_deputados_gastos_cota()
+    save_files(dataset, 'deputados_gastos_cota')
 
 
 if __name__ == '__main__':

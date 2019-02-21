@@ -7,7 +7,7 @@ url_file = 'administracao/lotacoes.xml'
 url = url_base + url_file
 
 
-def process_servidores_lotacao_atual():
+def main():
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[[
@@ -20,11 +20,7 @@ def process_servidores_lotacao_atual():
         'IdRegime': 'id_regime', 'NomeUA': 'nm_unid_admin',
         'IdUA': 'id_unid_admin'
     })
-    save_files(dataset, 'data', 'servidores_lotacao_atual')
-
-
-def main():
-    process_servidores_lotacao_atual()
+    save_files(dataset, 'servidores_lotacao_atual')
 
 
 if __name__ == '__main__':

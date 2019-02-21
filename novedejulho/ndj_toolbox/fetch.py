@@ -66,18 +66,20 @@ class xml_df_internal:
 
 # Utilitários para salvar os dados em csv comprimido e regular
 
-def save_file(df, data_dir, name, extension):
+def save_file(df, name, extension):
+    hoje = datetime.strftime(datetime.now(), '%Y-%m-%d')
+    DATA_DIR = f'data_{hoje}'
+
     params = {'encoding': 'utf-8',
               'index': False,
               'sep': ','}
     if extension == 'xz':
         params['compression'] = 'xz'
 
-    today = datetime.strftime(datetime.now(), '%Y-%m-%d')
-    file_name = '{}-{}.{}'.format(today, name, extension)
-    df.to_csv(os.path.join(data_dir, file_name), **params)
+    file_name = '{}.{}'.format(name, extension)
+    df.to_csv(os.path.join(DATA_DIR, file_name), **params)
 
 
-def save_files(df, data_dir, name):
+def save_files(df, name):
     for extension in ('csv', 'xz'):
-        save_file(df, data_dir, name, extension)
+        save_file(df, name, extension)
