@@ -29,6 +29,8 @@ Retorna as proposições dos deputados desde 2008.
 - `novedejulho.py`<br>
 Retorna todos os dados dos demais scripts, além de converter os datasets para `.db`
 
+![Screenshot](https://i.imgur.com/7uUSyEn.png)
+
 Os scripts rodam com o auxílio de `fetch.py` e `format.py`, ambos na pasta `ndj_toolbox`. Apesar de estarem em funcionamento, os scripts retornam dados que ainda não estão plenamente formatados -- o `format.py` está em atualização para que isso ocorra o quanto antes.
 
 Outros scripts estão em produção, como para baixar contratos e convênios firmados com a Alesp.
