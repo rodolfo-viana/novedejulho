@@ -1,6 +1,7 @@
 # __Nove de Julho__
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/dc4a0d2281a965d5dfd6/maintainability)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability-percentage/rodolfo-viana/novedejulho.svg)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
+[![](https://img.shields.io/badge/made%20with-%3C3-red.svg)]
 
 Nove de Julho é um projeto open-source de ativismo cívico com foco na Assembleia Legislativa do Estado de São Paulo.
 
