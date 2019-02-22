@@ -1,5 +1,7 @@
 # __Nove de Julho__
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/dc4a0d2281a965d5dfd6/maintainability)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
+
 Nove de Julho é um projeto open-source de ativismo cívico com foco na Assembleia Legislativa do Estado de São Paulo.
 
 Seu objetivo é agregar e formatar conjuntos de dados da Alesp, como gastos na cota parlamentar, proposições apresentadas, leis aprovadas, presenças em sessões, andamento de comissões, lista de funcionários, salários, entre outros.
