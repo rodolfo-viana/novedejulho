@@ -7,7 +7,7 @@ Nove de Julho é um projeto open-source de ativismo cívico com foco na Assemble
 
 Seu objetivo é agregar e formatar conjuntos de dados da Alesp, como gastos na cota parlamentar, proposições apresentadas, leis aprovadas, presenças em sessões, andamento de comissões, lista de funcionários, salários, entre outros.
 
-Com desenvolvimento iniciado em janeiro de 2019, Nove de Julho é desenvolvido por [rodolfo-viana](https://github.com/rodolfo-viana), e contou com a colaboração de [cuducos](https://github.com/cuducos), [jtemporal](https://github.com/jtemporal) e [Vnicius](https://github.com/Vnicius).
+Com desenvolvimento iniciado em janeiro de 2019, Nove de Julho é desenvolvido por [rodolfo-viana](https://github.com/rodolfo-viana) e conta com a colaboração de [cuducos](https://github.com/cuducos), [jtemporal](https://github.com/jtemporal) e [Vnicius](https://github.com/Vnicius).
 
 ### Fonte dos dados
 
@@ -26,6 +26,17 @@ Outros scripts estão em produção, como para baixar contratos e convênios fir
 ### Como usar
 
 __Não é preciso ter experiência com qualquer linguagem de programação para usar os scripts.__ Basta seguir as instruções detalhadas [aqui](https://github.com/rodolfo-viana/novedejulho/blob/master/INSTRUCOES_DE_USO.md).
+
+Caso você tenha experiência com Python, basta clonar este repositório...
+
+`$ git clone https://github.com/rodolfo-viana/novedejulho.git`
+
+...e instalar as bibliotecas necessárias na pasta do projeto.
+
+```
+$ cd novedejulho
+$ pip install -r requirements.txt
+```
 
 ### To-do
 
