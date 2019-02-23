@@ -1,7 +1,7 @@
 # __Nove de Julho__
 
 [![Maintainability](https://img.shields.io/codeclimate/maintainability-percentage/rodolfo-viana/novedejulho.svg)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
-[![Test Coverage](https://img.shields.io/codeclimate/coverage/rodolfo-viana/novedejulho.svg)](https://codeclimate.com/github/rodolfo-viana/novedejulho/test_coverage)
+[![Build Status](https://travis-ci.org/rodolfo-viana/novedejulho.svg?branch=master)](https://travis-ci.org/rodolfo-viana/novedejulho)
 ![](https://img.shields.io/badge/made%20with-%3C3-red.svg)
 
 > Criação de [rodolfo-viana](https://github.com/rodolfo-viana)<br>
