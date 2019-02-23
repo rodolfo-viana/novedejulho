@@ -1,6 +1,34 @@
 import requests as req
+import xml.etree.ElementTree as ElementTree
 
-from novedejulho.ndj_toolbox.fetch import xml_df
+import pandas as pd
+
+
+class xml_df:
+
+    def __init__(self, xml_data):
+        self.root = ElementTree.XML(xml_data)
+
+    def parse_root(self, root=None):
+        root = root if root else self.root
+        yield from (self.parse_element(child) for child in iter(root))
+
+    def parse_element(self, element, parsed=None):
+        if parsed is None:
+            parsed = dict()
+
+        new_values = {k: element.attrib.get(k) for k in element.keys()}
+        parsed.update(new_values)
+        if element.text:
+            parsed[element.tag] = element.text
+
+        for child in list(element):
+            self.parse_element(child, parsed)
+
+        return parsed
+
+    def process_data(self):
+        return pd.DataFrame(self.parse_root())
 
 
 def test_fetch_xml():
