@@ -27,9 +27,11 @@ Outros scripts estão em produção, como para baixar contratos e convênios fir
 
 __Não é preciso ter experiência com qualquer linguagem de programação para usar os scripts.__ Basta seguir as instruções detalhadas [aqui](https://github.com/rodolfo-viana/novedejulho/blob/master/INSTRUCOES_DE_USO.md).
 
-Caso você tenha experiência com Python, basta clonar este repositório...
+Caso você tenha algum conhecimento de Python, basta clonar este repositório...
 
-`$ git clone https://github.com/rodolfo-viana/novedejulho.git`
+```
+$ git clone https://github.com/rodolfo-viana/novedejulho.git
+```
 
 ...e instalar as bibliotecas necessárias na pasta do projeto.
 
