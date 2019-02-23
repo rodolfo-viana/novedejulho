@@ -70,6 +70,11 @@ def save_file(df, name, extension):
     hoje = datetime.strftime(datetime.now(), '%Y-%m-%d')
     DATA_DIR = f'data_{hoje}'
 
+    try:
+        os.makedirs(DATA_DIR)
+    except:
+        pass
+
     params = {'encoding': 'utf-8',
               'index': False,
               'sep': ','}
