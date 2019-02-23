@@ -10,6 +10,7 @@ env:
     - CC_TEST_REPORTER_ID=9b37eef95a63b0f3801abbdcdcb45cdbaff7691f6edaef0e92dde107f8890d3b
 
 install:
+  - pip install coverage
   - python -m pip install -r requirements.txt
 
 before_script:
@@ -19,7 +20,8 @@ before_script:
 
 script:
   - cd tests
-  - pytest test_com_deliberacoes.py -v
+  - coverage run test_com_deliberacoes.py test -v
 
 after_success:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - coverage xml
+  - ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $TRAVIS_TEST_RESULT
