@@ -33,7 +33,8 @@ def main():
                 for tr in soup.find_all('tr')[1:]:
                     tds = tr.find_all('td')
                     dw.writerow({'nm_funcionario': tds[0].get_text().strip(),
-                                 'ano': ano, 'mes': mes,
+                                 'ano': ano,
+                                 'mes': mes,
                                  'vlr_bruto': sanitize_float(tds[1]),
                                  'vlr_liquido': sanitize_float(tds[2]),
                                  'tributos': sanitize_float(tds[3]),
@@ -53,7 +54,7 @@ def main():
                                  })
 
     dataset = pd.read_csv('temp.csv')
-    save_files(dataset, 'salarios_servidores')
+    save_files(dataset, 'servidores_salarios')
     os.remove('temp.csv')
 
 

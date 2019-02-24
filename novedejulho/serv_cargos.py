@@ -15,9 +15,13 @@ def main():
         'DataInicio', 'DataFim'
     ]]
     dataset = dataset.rename(columns={
-        'NomeFuncionario': 'nm_funcionario', 'NomeCargo': 'nm_cargo',
-        'IdCargo': 'id_cargo', 'NomeRegime': 'nm_regime',
-        'IdRegime': 'id_regime', 'DataInicio': 'dt_inicio', 'DataFim': 'dt_fim'
+        'NomeFuncionario': 'nm_funcionario',
+        'NomeCargo': 'nm_cargo',
+        'IdCargo': 'id_cargo',
+        'NomeRegime': 'nm_regime',
+        'IdRegime': 'id_regime',
+        'DataInicio': 'dt_inicio',
+        'DataFim': 'dt_fim'
     })
     save_files(dataset, 'servidores_cargos')
 

@@ -14,8 +14,11 @@ def main():
         'NomeFuncionario', 'NomeUA', 'IdUA', 'DataInicio', 'DataFim'
     ]]
     dataset = dataset.rename(columns={
-        'NomeFuncionario': 'nm_funcionario', 'NomeUA': 'nm_unid_admin',
-        'IdUA': 'id_unid_admin', 'DataInicio': 'dt_inicio', 'DataFim': 'dt_fim'
+        'NomeFuncionario': 'nm_funcionario',
+        'NomeUA': 'nm_unid_admin',
+        'IdUA': 'id_unid_admin',
+        'DataInicio': 'dt_inicio',
+        'DataFim': 'dt_fim'
     })
     save_files(dataset, 'servidores_lotacoes_historico')
 
