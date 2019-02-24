@@ -5,6 +5,15 @@ import sqlite3
 from datetime import datetime
 
 
+# Utilitário para remover newline
+
+def remove_break_line(text):
+    try:
+        return text.replace('\n', '')
+    except:
+        return text
+
+
 # Utilitário para transformar em float e converter vírgula em ponto
 
 def sanitize_float(item):
