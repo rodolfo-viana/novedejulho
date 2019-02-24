@@ -20,7 +20,17 @@ Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abert
 
 `novedejulho.py` aciona mais de duas dezenas de scripts que fazem o download de dados como gastos feitos via verba de gabinete, salários dos servidores, presenças dos deputados em comissões, projetos apresentados etc.
 
-Esses dados são salvos em arquivos `.csv` (para ler em Excel ou LibreOffice Calc) e `.xz` (para usar com Pandas). Também são agregados em um banco de dados `.db` (para acessar com SQL).
+Pelo começo do nome dos arquivos é possível saber a qual categoria pertence cada script:
+
+- `com` para dados de comissões (votações, sessões, preseças etc.)
+- `dep` para dados de deputados (bases eleitorais, áreas de atuação, gastos na cota etc.)
+- `doc` para dados de documentos (projetos de lei, autores, pareceres etc.)
+- `leg` para dados de legislação (normas, anotações, temas etc.)
+- `serv` para dados de servidores (lotações, cargos, salários etc.)
+
+Alguns desses scripts terminam com `indice` no nome. Isso indica que os dados raspados por meio deles servem como `foreign keys` em agregações.
+
+Todos os dados são salvos em arquivos `.csv` (para ler em Excel ou LibreOffice Calc) e `.xz` (para usar com Pandas). Também são agregados em um banco de dados `.db` (para acessar com SQL).
 
 ![Screenshot](https://i.imgur.com/7uUSyEn.png)
 
@@ -43,7 +53,27 @@ $ cd novedejulho
 $ pip install -r requirements.txt
 ```
 
-### To-do
+### Como colaborar
+
+Aos que desejam colaborar mas não sabem codar, uma forma muito grande de ajuda é mandando issues com bugs ou ideias para melhorar o projeto. Você pode [abrir uma issue aqui](https://github.com/rodolfo-viana/novedejulho/issues/new).
+
+Se quiser colocar a mão em códigos e ajudar com aprimoramentos e correções, faça um fork do repositório no GitHub. Depois:
+
+```
+$ git clone https://github.com/{seu-nome-de-usuario}/novedejulho.git
+```
+
+Não esqueça de criar um branch com suas alterações...
+
+```
+$ git checkout -b {seu-nome-de-usuario}-{breve-descricao}
+$ git commit -am "{Mensagem dizendo como alterou o original}"
+$ git push origin {seu-nome-de-usuario}-{breve-descricao}
+```
+
+...E abrir um pull request no GitHub. Prometemos responder com agilidade.
+
+Caso não tenha ideia de como contribuir, temos algumas sugestões:
 
 - [ ] Alterar a função `generate_db` para inferir os tipos de dados
 - [ ] Mapear o que mais pode ser raspado do site
