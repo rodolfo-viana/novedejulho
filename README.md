@@ -1,4 +1,4 @@
-# __Nove de Julho__
+﻿# __Nove de Julho__
 
 [![Maintainability](https://img.shields.io/codeclimate/maintainability-percentage/rodolfo-viana/novedejulho.svg)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
 [![Build Status](https://travis-ci.org/rodolfo-viana/novedejulho.svg?branch=master)](https://travis-ci.org/rodolfo-viana/novedejulho)
@@ -32,7 +32,7 @@ Alguns desses scripts terminam com `indice` no nome. Isso indica que os dados ra
 
 Todos os dados são salvos em arquivos `.csv` (para ler em Excel ou LibreOffice Calc) e `.xz` (para usar com Pandas). Também são agregados em um banco de dados `.db` (para acessar com SQL).
 
-![Screenshot](https://i.imgur.com/7uUSyEn.png)
+![Screenshot](https://i.imgur.com/GZlaKuJ.png)
 
 Outros scripts estão em produção, como para baixar contratos e convênios firmados pela Alesp.
 
@@ -75,7 +75,10 @@ $ git push origin {seu-nome-de-usuario}-{breve-descricao}
 
 Caso não tenha ideia de como contribuir, temos algumas sugestões:
 
-- [ ] Alterar a função `generate_db` para inferir os tipos de dados
+- [ ] Alterar a função `generate_db`, em `format.py`, para inferir os tipos de dados
+- [ ] Criar função em `format.py` para trocar sigla pela descrição em `tp_convocacao`, no script `com_reunioes.py`
+- [ ] Criar função em `format.py` para eliminar "Deputado" e "Deputada" de `nm_presidente`, no script `com_reunioes.py`
+- [ ] Criar função em `format.py` para deixar `nm_deputado`, do script `dep_gastos_cota.py`, em caixa alta e baixa
 - [ ] Mapear o que mais pode ser raspado do site
 - [ ] Criar scripts para os demais conjuntos que chegam como `.zip`
 
