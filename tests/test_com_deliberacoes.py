@@ -51,10 +51,14 @@ def test_rename_columns():
         'DataSaida', 'Deliberacao', 'IdDeliberacao'
     ]]
     dataset = dataset.rename(columns={
-        'IdReuniao': 'id_reuniao', 'IdDocumento': 'id_documento',
-        'IdPauta': 'id_pauta', 'NrOrdem': 'nr_ordem',
-        'DataInclusao': 'dt_inclusao', 'DataSaida': 'dt_saida',
-        'Deliberacao': 'deliberacao', 'IdDeliberacao': 'id_deliberacao'
+        'IdReuniao': 'id_reuniao',
+        'IdDocumento': 'id_documento',
+        'IdPauta': 'id_pauta',
+        'NrOrdem': 'nr_ordem',
+        'DataInclusao': 'dt_inclusao',
+        'DataSaida': 'dt_saida',
+        'Deliberacao': 'deliberacao',
+        'IdDeliberacao': 'id_deliberacao'
     })
 
 
