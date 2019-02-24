@@ -12,10 +12,11 @@ def main():
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[['IdPalavra', 'Palavra', 'PalavraSemAcento']]
     dataset = dataset.rename(columns={
-        'IdPalavra': 'id_palavra', 'Palavra': 'termo',
-        'PalavraSemAcento': 'termo_sem_acento'
+        'IdPalavra': 'id_palavra',
+        'Palavra': 'tx_termo',
+        'PalavraSemAcento': 'tx_termo_sem_acento'
     })
-    save_files(dataset, 'indice_proposicoes_palavras-chave')
+    save_files(dataset, 'documentos_palavraschave_indice')
 
 
 if __name__ == '__main__':

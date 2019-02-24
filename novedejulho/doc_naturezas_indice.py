@@ -12,10 +12,12 @@ def main():
     dataset = xml_df(xml_data).process_data()
     dataset = dataset[['idNatureza', 'nmNatureza', 'sgNatureza', 'tpNatureza']]
     dataset = dataset.rename(columns={
-        'idNatureza': 'id_natureza', 'nmNatureza': 'nm_natureza',
-        'sgNatureza': 'sg_natureza', 'tpNatureza': 'tp_natureza'
+        'idNatureza': 'id_natureza',
+        'nmNatureza': 'nm_natureza',
+        'sgNatureza': 'sg_natureza',
+        'tpNatureza': 'tp_natureza'
     })
-    save_files(dataset, 'indice_proposicoes_natureza')
+    save_files(dataset, 'documentos_naturezas_indice')
 
 
 if __name__ == '__main__':

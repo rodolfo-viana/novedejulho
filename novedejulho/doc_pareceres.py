@@ -29,15 +29,23 @@ def main():
         'TpParecer', 'URL'
     ]]
     dataset = dataset.rename(columns={
-        'AnoParecer': 'ano', 'Descricao': 'ds_parecer', 'Data': 'dt_parecer',
-        'AdReferendum': 'ad_referendum', 'RelatorEspecial': 'relator_especial',
-        'VotoVencido': 'voto_vencido', 'IdComissao': 'id_comissao',
-        'IdDocumento': 'id_documento', 'IdParecer': 'id_parecer',
-        'IdTipoParecer': 'id_tp_parecer', 'TipoParecer': 'tp_parecer',
-        'NrParecer': 'nr_parecer', 'SiglaComissao': 'sg_comissao',
-        'TpParecer': 'cat_parecer', 'URL': 'url'
+        'AnoParecer': 'tx_ano_parecer',
+        'Data': 'dt_parecer',
+        'IdComissao': 'id_comissao',
+        'SiglaComissao': 'sg_comissao',
+        'IdDocumento': 'id_documento',
+        'IdParecer': 'id_parecer',
+        'IdTipoParecer': 'id_tp_parecer',
+        'TipoParecer': 'tp_parecer',
+        'NrParecer': 'nr_parecer',
+        'TpParecer': 'cat_parecer',
+        'Descricao': 'ds_parecer',
+        'AdReferendum': 'tx_adreferendum',
+        'RelatorEspecial': 'tx_relator_especial',
+        'VotoVencido': 'tx_voto_vencido',
+        'URL': 'tx_url'
     })
-    save_files(dataset, 'proposicoes_pareceres')
+    save_files(dataset, 'documentos_pareceres')
     os.remove(xml_data)
 
 

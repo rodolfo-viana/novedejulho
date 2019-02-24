@@ -27,13 +27,16 @@ def main():
         'DtPublicacao', 'IdDocumento', 'IdNatureza', 'NroLegislativo'
     ]]
     dataset = dataset.rename(columns={
-        'IdDocumento': 'id_proposicao', 'CodOriginalidade': 'cd_originalidade',
-        'AnoLegislativo': 'ano_legislativo',
-        'DtEntradaSistema': 'dt_apresentacao', 'DtPublicacao': 'dt_publicacao',
-        'IdNatureza': 'id_natureza', 'NroLegislativo': 'nr_legislativo',
+        'IdDocumento': 'id_documento',
+        'CodOriginalidade': 'cd_originalidade',
+        'AnoLegislativo': 'tx_ano_legislativo',
+        'DtEntradaSistema': 'dt_apresentacao',
+        'DtPublicacao': 'dt_publicacao',
+        'IdNatureza': 'id_natureza',
+        'NroLegislativo': 'nr_legislativo',
         'Ementa': 'tx_ementa'
     })
-    save_files(dataset, 'proposicoes')
+    save_files(dataset, 'documentos')
     os.remove(xml_data)
 
 
