@@ -1,0 +1,15 @@
+============================= test session starts =============================
+platform win32 -- Python 3.6.5, pytest-4.1.1, py-1.7.0, pluggy-0.8.1 -- c:\users\rodolfoviana\documents\github\novedejulho\scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\rodolfoviana\Documents\GitHub\novedejulho, inifile:
+collecting ... collected 7 items
+
+tests/test_com_deliberacoes.py::test_fetch_xml PASSED                    [ 14%]
+tests/test_com_deliberacoes.py::test_parse_xml PASSED                    [ 28%]
+tests/test_com_deliberacoes.py::test_rename_columns PASSED               [ 42%]
+tests/test_com_deliberacoes.py::test_columns_names PASSED                [ 57%]
+tests/test_com_deliberacoes.py::test_columns_length PASSED               [ 71%]
+tests/test_com_deliberacoes.py::test_null_values PASSED                  [ 85%]
+tests/test_com_deliberacoes.py::test_type PASSED                         [100%]
+
+========================== 7 passed in 2.81 seconds ===========================
