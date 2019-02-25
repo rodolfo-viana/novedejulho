@@ -1,0 +1,6 @@
+[run]
+source = novedejulho/
+omit =
+    */travis/*
+    */tests/*
+    
