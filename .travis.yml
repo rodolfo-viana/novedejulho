@@ -18,8 +18,7 @@ script:
   - cd tests
   - pytest test_com_deliberacoes.py -v
   - cd ..
-  - cd novedejulho
-  - coverage run -a *.py test
+  - coverage run -a novedejulho/*.py test
 
 after_success:
   - coveralls
