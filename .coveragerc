@@ -1,3 +1,2 @@
 [run]
-source = */home/travis/build/rodolfo-viana/novedejulho/
-    
+source = novedejulho/ 
