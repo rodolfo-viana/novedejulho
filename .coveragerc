@@ -1,6 +1,3 @@
 [run]
-source = novedejulho/
-omit =
-    */travis/*
-    */tests/*
+source = */home/travis/build/rodolfo-viana/novedejulho/
     
