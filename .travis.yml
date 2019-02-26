@@ -21,7 +21,7 @@ before_script:
 
 script:
   - cd tests
-  - coverage run test_com_deliberacoes.py test -v
+  - coverage run -m pytest test_com_deliberacoes.py -v
 
 after_success:
   - coverage xml
