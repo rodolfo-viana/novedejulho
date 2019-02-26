@@ -25,4 +25,4 @@ script:
 
 after_success:
   - coverage xml
-  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+  - ./cc-test-reporter after-build format-coverage -t coverage.py --exit-code $TRAVIS_TEST_RESULT
