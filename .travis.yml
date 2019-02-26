@@ -21,7 +21,8 @@ before_script:
 
 script:
   - cd tests
-  - coverage run test_com_deliberacoes.py test
+  - coverage run test_com_deliberacoes.py test -v
 
 after_success:
-  - ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $TRAVIS_TEST_RESULT
+  - coverage xml
+  - - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
