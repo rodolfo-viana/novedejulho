@@ -21,8 +21,7 @@ before_script:
 
 script:
   - cd tests
-  - touch .coverage
-  - coverage run -a test_com_deliberacoes.py test
+  - coverage run test_com_deliberacoes.py test
 
 after_success:
   - coverage xml
