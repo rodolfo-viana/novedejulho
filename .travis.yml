@@ -24,5 +24,4 @@ script:
   - coverage run test_com_deliberacoes.py test
 
 after_success:
-  - coverage xml
   - ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $TRAVIS_TEST_RESULT
