@@ -7,19 +7,21 @@ cache: pip
 
 env:
   global:
-    - COVERALLS_REPO_TOKEN=jfOVeGf9SKjrecNCQ7d6vZyG5zxViVLN0
+    - CC_TEST_REPORTER_ID=9b37eef95a63b0f3801abbdcdcb45cdbaff7691f6edaef0e92dde107f8890d3b
 
 install:
   - python -m pip install -U pip coverage
-  - python -m pip install -U pip coveralls
+  - python -m pip install -U pip pytest
   - python -m pip install -r requirements.txt
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script:
-  - cd tests
-  - pytest test_com_deliberacoes.py -v
-  - cd ..
-  - coverage run -a novedejulho/*.py test
+  - coverage run -m pytest tests/test_com_deliberacoes.py -v
 
 after_success:
-  - coveralls
-
+  - coverage xml
+  - ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $TRAVIS_TEST_RESULT
