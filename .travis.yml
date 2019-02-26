@@ -20,7 +20,8 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - coverage run -m pytest tests/test_com_deliberacoes.py -v
+  - cd tests
+  - coverage run -m pytest test_com_deliberacoes.py
 
 after_success:
   - coverage xml
