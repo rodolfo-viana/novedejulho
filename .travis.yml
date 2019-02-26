@@ -25,4 +25,4 @@ script:
 
 after_success:
   - coverage xml
-  - ./cc-test-reporter after-build format-coverage -t coverage.py upload-coverage --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build COVERAGE_FILE=coverage.xml format-coverage -t coverage.py upload-coverage --exit-code $TRAVIS_TEST_RESULT
