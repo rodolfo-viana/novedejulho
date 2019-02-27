@@ -23,7 +23,7 @@ Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abert
 
 Pelo começo do nome dos arquivos é possível saber a qual categoria pertence cada script:
 
-- `com` para dados de comissões (votações, sessões, preseças etc.)
+- `com` para dados de comissões (votações, sessões, presenças etc.)
 - `dep` para dados de deputados (bases eleitorais, áreas de atuação, gastos na cota etc.)
 - `doc` para dados de documentos (projetos de lei, autores, pareceres etc.)
 - `leg` para dados de legislação (normas, anotações, temas etc.)
