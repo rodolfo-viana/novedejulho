@@ -14,7 +14,7 @@ install:
 
 script:
   - cd tests
-  - coverage run -m pytest test_com_deliberacoes.py -v
+  - coverage run -m pytest test_com_deliberacoes.py
 
 after_success:
   - codecov -t "15424ed3-5356-4617-a924-69f840fa7fb8"
