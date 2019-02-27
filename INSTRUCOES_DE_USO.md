@@ -23,13 +23,14 @@ Para instalar o Python 3, que é a versão usada no projeto, siga este passo a p
 7. Uma janela de instalação irá aparecer. Quando a barra de progresso chegar ao fim, a instalação estará completa
 8. Para checar se a instalação correu perfeitamente, vá ao console (aplicativo Terminal no MacOS e Linux, e Prompt de Comando no Windows) e digite `python --version` ou `python3 --version`, caso seu sistema seja MacOS ou Linux. Depois de pressionar `Enter`, você terá uma mensagem com a versão de Python que instalou -- por exemplo, `Python 3.6.5`. Isso significa que a instalação foi concluída com êxito
 
-### __Instalação dos módulos__
+### __Instalação de dependências__
 
 Para rodar os scripts, você precisará ter alguns módulos de Python instalados na sua máquina. Não são muitos, e você pode consegui-los assim:
 
 1. Abra o Terminal (MacOS e Linux) ou o Prompt de Comando (Windows)
-2. Digite `pip install pandas requests beautifulsoup4`
-3. Pressione `Enter`, e os módulos Pandas, Requests e BeautifulSoup serão instalados
+2. Vá à pasta `novedejulho`
+2. Digite `pip install -r requirements.txt`
+3. Pressione `Enter`, e os módulos serão instalados
 
 ### __Instalação dos scripts__
 
@@ -47,8 +48,6 @@ Com o passo a passo anterior concluído:
 3. Dentro de `novedejulho-master` digite `cd novedejulho`
 4. Dentro de `novedejulho`, digite `python novejulho.py` (se não funcionar, digite `python3 novedejulho.py`)
 5. Aguarde até o script terminar de processar -- leva cerca de 7 minutos.
-6. Automaticamente será gerada a pasta `data` contendo dois tipos de arquivos: `.csv`, com os dados para serem abertos em processadores de planilhas como Excel e LibreOffice Calc, e `.xz`, com os mesmo dados, mas para serem usados caso você pretenda trabalhar com Jupyter Notebook. Ambos os arquivos são idênticos. Além disso, há um arquivo `novedejulho.db`, com todos os dados de todos os scripts agregados para leitura com SQL.
+6. Automaticamente será gerada uma pasta `data`, com ano, mês e dia, contendo dois tipos de arquivos: `.csv`, com os dados para serem abertos em processadores de planilhas como Excel e LibreOffice Calc, e `.xz`, com os mesmo dados, mas para serem usados caso você pretenda trabalhar com Jupyter Notebook. Ambos os arquivos são idênticos. Além disso, há um arquivo `novedejulho.db`, com todos os dados de todos os scripts agregados para leitura com SQL.
 
-Qualquer dúvida, mande uma DM no Twitter para @rodolfoviana. Estarei lá para ajudar. :)
-
-
+Qualquer dúvida, mande uma DM no Twitter para @rodolfoviana. Estarei lá para ajudar.
