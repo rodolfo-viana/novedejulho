@@ -2,6 +2,7 @@
 
 [![Maintainability](https://img.shields.io/codeclimate/maintainability-percentage/rodolfo-viana/novedejulho.svg)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
 [![Build Status](https://travis-ci.org/rodolfo-viana/novedejulho.svg?branch=master)](https://travis-ci.org/rodolfo-viana/novedejulho)
+[![codecov](https://img.shields.io/codecov/c/github/rodolfo-viana/novedejulho.svg)](https://codecov.io/gh/rodolfo-viana/novedejulho)
 ![](https://img.shields.io/badge/made%20with-%3C3-red.svg)
 
 > Criação de [rodolfo-viana](https://github.com/rodolfo-viana)<br>
