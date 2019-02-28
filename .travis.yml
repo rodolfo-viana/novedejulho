@@ -7,10 +7,7 @@ cache: pip
 
 install:
   - python -m pip install -r requirements.txt
-  - python -m pip install -U pip coverage
-  - python -m pip install -U pip pytest
-  - python -m pip install -U pytest-cov
-  - python -m pip install -U codecov
+  - python -m pip install -U pip coverage pytest pytest-cov codecov
 
 script:
   - cd tests
