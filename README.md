@@ -1,4 +1,7 @@
-﻿# __Nove de Julho__
+<p align="center"><img src="https://media.giphy.com/media/moN59IdquTB0xE0g5c/giphy.gif" width="100">></p>
+
+
+# __Nove de Julho__
 
 [![Maintainability](https://img.shields.io/codeclimate/maintainability-percentage/rodolfo-viana/novedejulho.svg)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
 [![Build Status](https://travis-ci.org/rodolfo-viana/novedejulho.svg?branch=master)](https://travis-ci.org/rodolfo-viana/novedejulho)
