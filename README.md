@@ -1,4 +1,4 @@
-<p align="center"><img src="https://media.giphy.com/media/moN59IdquTB0xE0g5c/giphy.gif" width="100">></p>
+<p align="center"><img src="https://media.giphy.com/media/moN59IdquTB0xE0g5c/giphy.gif" width="100"></p>
 
 
 # __Nove de Julho__
