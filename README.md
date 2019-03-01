@@ -3,6 +3,7 @@
 
 # __Nove de Julho__
 
+[![GitHub release](https://img.shields.io/github/release/rodolfo-viana/novedejulho.svg)](https://github.com/rodolfo-viana/novedejulho/releases/tag/v0.1-beta.1)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability-percentage/rodolfo-viana/novedejulho.svg)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
 [![Build Status](https://travis-ci.org/rodolfo-viana/novedejulho.svg?branch=master)](https://travis-ci.org/rodolfo-viana/novedejulho)
 [![codecov](https://img.shields.io/codecov/c/github/rodolfo-viana/novedejulho.svg)](https://codecov.io/gh/rodolfo-viana/novedejulho)
