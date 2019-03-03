@@ -32,14 +32,10 @@ class xml_df:
 
 
 def test_fetch_xml():
-    global url
-    url_base = 'https://www.al.sp.gov.br/repositorioDados/'
-    url_file = 'processo_legislativo/comissoes_permanentes_deliberacoes.xml'
+    global url, dataset
+    url_base = 'https://www.w3schools.com/xml/'
+    url_file = 'cd_catalog.xml'
     url = url_base + url_file
-
-
-def test_parse_xml():
-    global dataset
     xml_data = req.get(url).content
     dataset = xml_df(xml_data).process_data()
 
@@ -47,36 +43,54 @@ def test_parse_xml():
 def test_rename_columns():
     global dataset
     dataset = dataset[[
-        'IdReuniao', 'IdDocumento', 'IdPauta', 'NrOrdem', 'DataInclusao',
-        'DataSaida', 'Deliberacao', 'IdDeliberacao'
+        'TITLE', 'ARTIST', 'COUNTRY', 'COMPANY', 'PRICE', 'YEAR'
     ]]
     dataset = dataset.rename(columns={
-        'IdReuniao': 'id_reuniao',
-        'IdDocumento': 'id_documento',
-        'IdPauta': 'id_pauta',
-        'NrOrdem': 'nr_ordem',
-        'DataInclusao': 'dt_inclusao',
-        'DataSaida': 'dt_saida',
-        'Deliberacao': 'deliberacao',
-        'IdDeliberacao': 'id_deliberacao'
+        'TITLE': 'titulo',
+        'ARTIST': 'artista',
+        'COUNTRY': 'pais',
+        'COMPANY': 'gravadora',
+        'PRICE': 'preco',
+        'YEAR': 'ano'
     })
 
 
 def test_columns_names():
-    assert list(dataset) == ['id_reuniao', 'id_documento', 'id_pauta',
-                             'nr_ordem', 'dt_inclusao', 'dt_saida',
-                             'deliberacao', 'id_deliberacao']
+    assert list(dataset) == ['titulo', 'artista', 'pais',
+                             'gravadora', 'preco', 'ano']
 
 
 def test_columns_length():
-    assert len(dataset['id_reuniao']) == len(dataset['id_documento'])
+    assert len(dataset['titulo']) == len(dataset['artista'])
 
 
 def test_null_values():
-    for i in dataset['nr_ordem']:
+    for i in dataset['preco']:
         assert i != ''
 
 
-def test_type():
-    for j in dataset['deliberacao']:
+def test_type_str():
+    for j in dataset['gravadora']:
         assert type(j) == str
+
+
+def test_sanitize_int():
+    for k in dataset['ano']:
+        return int(k)
+        assert type(k) == int
+
+
+def test_sanitize_float():
+    for l in dataset['preco']:
+        return float(l)
+        assert type(l) == float
+
+
+def test_sum():
+    for m in dataset['preco']:
+        return float(m)
+    assert dataset['preco'].sum() == 270.0
+
+
+def test_count():
+    assert dataset['titulo'].count() == 26
