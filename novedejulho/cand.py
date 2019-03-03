@@ -59,7 +59,7 @@ def main():
                           sep=';')
     dataset = dataset[dataset['ds_cargo'] == 'DEPUTADO ESTADUAL']
 
-    save_files(dataset, 'deputados_eleicoes')
+    save_files(dataset, 'candidatos')
     # Precisar URGENTEMENTE formatar esses dados
     os.remove(f'{DATA_DIR}/candidato_deputados.csv')
 
