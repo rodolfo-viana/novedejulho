@@ -3,11 +3,12 @@
 
 # __Nove de Julho__
 
-[![GitHub release](https://img.shields.io/github/release/rodolfo-viana/novedejulho.svg)](https://github.com/rodolfo-viana/novedejulho/releases/tag/v0.1-beta.1)
 [![Maintainability](https://api.codeclimate.com/v1/badges/dc4a0d2281a965d5dfd6/maintainability)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
 [![Build Status](https://travis-ci.org/rodolfo-viana/novedejulho.svg?branch=master)](https://travis-ci.org/rodolfo-viana/novedejulho)
-[![codecov](https://img.shields.io/codecov/c/github/rodolfo-viana/novedejulho.svg)](https://codecov.io/gh/rodolfo-viana/novedejulho)
-![](https://img.shields.io/badge/made%20with-%3C3-red.svg)
+[![codecov](https://img.shields.io/codecov/c/github/rodolfo-viana/novedejulho.svg)](https://codecov.io/gh/rodolfo-viana/novedejulho)<br>
+[![GitHub release](https://img.shields.io/github/release/rodolfo-viana/novedejulho.svg)](https://github.com/rodolfo-viana/novedejulho/releases/tag/v0.1-beta.1)
+![Code size](https://img.shields.io/github/languages/code-size/rodolfo-viana/novedejulho.svg)
+![Feito com <3](https://img.shields.io/badge/made%20with-%3C3-red.svg)
 
 > Criação de [rodolfo-viana](https://github.com/rodolfo-viana)<br>
 > Colaborações de [cuducos](https://github.com/cuducos), [jtemporal](https://github.com/jtemporal) e [Vnicius](https://github.com/Vnicius)<br>
@@ -22,6 +23,11 @@ Seu objetivo é agregar e formatar conjuntos de dados da Alesp, como gastos na c
 Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abertos](https://www.al.sp.gov.br/dados-abertos/) ou, quando não disponíveis no portal, por meio de raspagem do site oficial da assembleia.
 
 Conjuntos referentes aos deputados durante campanhas eleitorais são coletados do [Repositório de dados eleitorais](http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais), do TSE.
+
+__Checagem automática das fontes neste momento:__
+
+![Alesp](https://img.shields.io/website-up-down-green-red/https//www.al.sp.gov.br/dados-abertos/recurso/101.svg?label=site%20da%20dados%20da%20alesp)<br>
+![TSE](https://img.shields.io/website-up-down-green-red/http/agencia.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip.svg?label=site%20da%20dados%20do%20tse)
 
 ### Conteúdo
 
