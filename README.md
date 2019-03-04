@@ -21,6 +21,8 @@ Seu objetivo é agregar e formatar conjuntos de dados da Alesp, como gastos na c
 
 Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abertos](https://www.al.sp.gov.br/dados-abertos/) ou, quando não disponíveis no portal, por meio de raspagem do site oficial da assembleia.
 
+Conjuntos referentes aos deputados durante campanhas eleitorais são coletados do [Repositório de dados eleitorais](http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais), do TSE.
+
 ### Conteúdo
 
 `novedejulho.py` aciona mais de duas dezenas de scripts que fazem o download de dados como gastos feitos via verba de gabinete, salários dos servidores, presenças dos deputados em comissões, projetos apresentados etc.
@@ -32,6 +34,7 @@ Pelo começo do nome dos arquivos é possível saber a qual categoria pertence c
 - `doc` para dados de documentos (projetos de lei, autores, pareceres etc.)
 - `leg` para dados de legislação (normas, anotações, temas etc.)
 - `serv` para dados de servidores (lotações, cargos, salários etc.)
+- `cand` para dados dos deputados quando candidatos nas eleições de 2014 e 2018 (candidatos e bens declarados)
 
 Alguns desses scripts terminam com `indice` no nome. Isso indica que os dados raspados por meio deles servem como `foreign keys` em agregações.
 
