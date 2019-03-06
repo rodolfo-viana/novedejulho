@@ -74,10 +74,9 @@ class ParseXml:
 
 def test_fetch_xml():
     global url, dataset
-    url_base = 'https://www.w3schools.com/xml/'
-    url_file = 'cd_catalog.xml'
-    url = url_base + url_file
-    dataset = ParseXml(url).process_data()
+    url = 'https://www.w3schools.com/xml/cd_catalog.xml'
+    xml_location = req.get(url).content
+    dataset = ParseXml(xml_location).process_data()
 
 
 def test_rename_columns():
