@@ -31,7 +31,7 @@ class ParseXml:
 
     @property
     def is_local(self):
-        return not self.xml_location.lower().startswith('http')
+        return not self.xml_location.lower().startswith(b'http')
 
     @property
     def is_zipped(self):
