@@ -75,19 +75,18 @@ def test_type_str():
 
 
 def test_sanitize_int():
-    return int(k for k in dataset['ano'])
     for k in dataset['ano']:
         assert type(k) == int
 
 
 def test_sanitize_float():
-    return float(l for l in dataset['preco'])
     for l in dataset['preco']:
         assert type(l) == float
 
 
 def test_sum():
-    return float(m for m in dataset['preco'])
+    for m in dataset['preco']:
+        dataset['preco'].strip().replace(m, float(m), inplace=True)
     assert dataset['preco'].sum() == 270.0
 
 
