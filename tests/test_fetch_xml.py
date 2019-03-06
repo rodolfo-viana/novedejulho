@@ -95,7 +95,7 @@ def test_type_str():
 
 
 def test_sum():
-    assert dataset['preco'].sum() == 270.0
+    assert dataset['preco'].sum() == 237.0
 
 
 def test_count():
