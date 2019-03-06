@@ -1,11 +1,6 @@
-import os
-import re
 import requests as req
-from pathlib import Path
 from datetime import datetime
 import xml.etree.ElementTree as ElementTree
-from urllib.request import urlretrieve
-from zipfile import ZipFile
 
 import pandas as pd
 
@@ -22,33 +17,12 @@ class ParseXml:
             tree = ElementTree.XML(xml_location)
             self.root = tree.getroot()
 
-        elif self.is_zipped:
-            data = self.unzip()
-            self.root = ElementTree.XML(data)
-
         else:
             self.root = ElementTree.XML(xml_location)
 
     @property
     def is_local(self):
         return not self.xml_location.lower().startswith(b'http')
-
-    @property
-    def is_zipped(self):
-        return self.xml_location.lower().endswith(b'.zip')
-
-    def unzip(self):
-        url_pattern = re.compile(r'http|s:.*\w*\.zip$')
-        zip_name = re.sub(url_pattern, r'\w*\.zip$', self.url)
-
-        urlretrieve(self.url, f'{self.DATA_DIR}/{zip_name}')
-        with ZipFile(f'{self.DATA_DIR}/{zip_name}', 'r') as zip_file:
-            zip_file.extractall(f'{self.DATA_DIR}')
-        os.remove(f'{self.DATA_DIR}/{zip_name}')
-
-        for filename in Path(self.DATA_DIR).glob('*.xml'):
-            self.xml_data = filename
-            return filename
 
     def parse_root(self, root=None):
         root = root if root else self.root
