@@ -75,24 +75,26 @@ def test_sanitize_int():
 
 
 def test_int_values():
-    for k in dataset['ano']:
-        assert type(k) == int
-
-
-def test_type_str():
-    for j in dataset['gravadora']:
-        assert type(j) == str
+    for j in dataset['ano']:
+        assert type(j) == int
 
 
 def test_sanitize_float():
-    for l in dataset['preco']:
-        return float(l)
-        assert type(l) == float
+    global dataset
+    dataset['preco'] = dataset['preco'].astype('float64')
+
+
+def test_float_values():
+    for k in dataset['preco']:
+        assert type(k) == float
+
+
+def test_type_str():
+    for l in dataset['gravadora']:
+        assert type(l) == str
 
 
 def test_sum():
-    for m in dataset['preco']:
-        return float(m)
     assert dataset['preco'].sum() == 270.0
 
 
