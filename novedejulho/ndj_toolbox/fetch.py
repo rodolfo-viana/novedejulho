@@ -126,11 +126,11 @@ def save_files(df, name):
 #
 #    @property
 #    def is_local(self):
-#        return not self.xml_location.lower().startswith('http')
+#        return not self.xml_location.lower().startswith(b'http')
 #
 #    @property
 #    def is_zipped(self):
-#        return self.xml_location.lower().endswith('.zip')
+#        return self.xml_location.lower().endswith(b'.zip')
 #
 #    def unzip(self):
 #        url_pattern = re.compile(r'http|s:.*\w*\.zip$')
