@@ -35,7 +35,7 @@ class ParseXml:
 
     @property
     def is_zipped(self):
-        return self.xml_location.lower().endswith('.zip')
+        return self.xml_location.lower().endswith(b'.zip')
 
     def unzip(self):
         url_pattern = re.compile(r'http|s:.*\w*\.zip$')
@@ -75,8 +75,8 @@ class ParseXml:
 def test_fetch_xml():
     global url, dataset
     url = 'https://www.w3schools.com/xml/cd_catalog.xml'
-    xml_location = req.get(url).content
-    dataset = ParseXml(xml_location).process_data()
+    xml_data = req.get(url).content
+    dataset = ParseXml(xml_data).process_data()
 
 
 def test_rename_columns():
