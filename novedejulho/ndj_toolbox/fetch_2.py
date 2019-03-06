@@ -30,11 +30,11 @@ class ParseXml:
 
     @property
     def is_local(self):
-        return not self.xml_location.lower().startswith('http')
+        return not self.xml_location.lower().startswith(b'http')
 
     @property
     def is_zipped(self):
-        return self.xml_location.lower().endswith('.zip')
+        return self.xml_location.lower().endswith(b'.zip')
 
     def unzip(self):
         url_pattern = re.compile(r'http|s:.*\w*\.zip$')
@@ -47,7 +47,6 @@ class ParseXml:
 
         for filename in Path(self.DATA_DIR).glob('*.xml'):
             self.xml_data = filename
-            break
             return filename
 
     def parse_root(self, root=None):
@@ -72,20 +71,28 @@ class ParseXml:
         return pd.DataFrame(self.parse_root())
 
 
-def save(name):
-    """Função para salvar dataset em csv, na pasta correta e com os parâmetros
-    pré-estabelecidos:
-
-    >> save('name')
-    'pasta_correta/name.csv'
-
-    :param name: (str) nome do arquivo
-    :return: (str) caminho para o arquivo salvo
-    """
-
-    file_name = f'{name}.csv'
-
+def save_file(dataset, name, extension):
     params = {'encoding': 'utf-8',
               'index': False,
               'sep': ','}
+    if extension == 'xz':
+        params['compression'] = 'xz'
+
+    file_name = f'{name}.{extension}'
     dataset.to_csv(os.path.join(DATA_DIR, file_name), **params)
+
+
+def save(dataset, name):
+    """Função para salvar dataset em csv e xz, na pasta correta e com os
+    parâmetros pré-estabelecidos:
+
+    >> save(dataset, 'name')
+    'pasta_correta/name.csv'
+    'pasta_correta/name.xz'
+
+    :param dataset: (var) variável com o dataframe do script
+    :param name: (str) nome do arquivo
+    :return: (str) caminho para o arquivo salvo
+    """
+    for extension in ('csv', 'xz'):
+        save_file(dataset, name, extension)
