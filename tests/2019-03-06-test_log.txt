@@ -1,0 +1,21 @@
+============================= test session starts =============================
+platform win32 -- Python 3.6.5, pytest-4.1.1, py-1.7.0, pluggy-0.8.1 -- c:\users\rodolfoviana\documents\github\novedejulho\scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\rodolfoviana\Documents\GitHub\novedejulho, inifile:
+plugins: cov-2.6.1
+collecting ... collected 12 items
+
+tests/test_fetch_xml.py::test_fetch_xml PASSED                           [  8%]
+tests/test_fetch_xml.py::test_rename_columns PASSED                      [ 16%]
+tests/test_fetch_xml.py::test_columns_names PASSED                       [ 25%]
+tests/test_fetch_xml.py::test_columns_length PASSED                      [ 33%]
+tests/test_fetch_xml.py::test_null_values PASSED                         [ 41%]
+tests/test_fetch_xml.py::test_sanitize_int PASSED                        [ 50%]
+tests/test_fetch_xml.py::test_int_values PASSED                          [ 58%]
+tests/test_fetch_xml.py::test_sanitize_float PASSED                      [ 66%]
+tests/test_fetch_xml.py::test_float_values PASSED                        [ 75%]
+tests/test_fetch_xml.py::test_type_str PASSED                            [ 83%]
+tests/test_fetch_xml.py::test_sum PASSED                                 [ 91%]
+tests/test_fetch_xml.py::test_count PASSED                               [100%]
+
+========================== 12 passed in 7.72 seconds ==========================
