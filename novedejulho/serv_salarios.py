@@ -18,23 +18,23 @@ def main():
         'outros_bruto', 'outros_desconto', 'indenizacao'
     ]
 
-    ano_atual = datetime.now().year
-    for ano in range(2014, ano_atual + 1):
-        for mes in range(1, 13):
-            mes = format(mes, '02d')
-            url_base = 'https://www.al.sp.gov.br/repositorio/'
-            url_file = f'folha-de-pagamento/folha-{ano}-{mes}-detalhada.html'
-            url = url_base + url_file
-            data = req.get(url).content
-            soup = BeautifulSoup(data, 'html.parser')
-            with open('temp.csv', 'a') as file:
-                dw = csv.DictWriter(file, fieldnames=cols, lineterminator='\n')
-                dw.writeheader()
+    with open('temp.csv', 'a') as file:
+        dw = csv.DictWriter(file, fieldnames=cols, lineterminator='\n')
+        dw.writeheader()
+        ano_atual = datetime.now().year
+        for ano in range(2014, ano_atual + 1):
+            for mes in range(1, 13):
+                mes = format(mes, '02d')
+                url_base = 'https://www.al.sp.gov.br/repositorio/'
+                url_file = f'folha-de-pagamento/folha-{ano}-{mes}-detalhada.html'
+                url = url_base + url_file
+                data = req.get(url).content
+                soup = BeautifulSoup(data, 'html.parser')
                 for tr in soup.find_all('tr')[1:]:
                     tds = tr.find_all('td')
                     dw.writerow({'nm_funcionario': tds[0].get_text().strip(),
-                                 'ano': ano,
-                                 'mes': mes,
+                                 'ano': int(ano),
+                                 'mes': int(mes),
                                  'vlr_bruto': sanitize_float(tds[1]),
                                  'vlr_liquido': sanitize_float(tds[2]),
                                  'tributos': sanitize_float(tds[3]),
