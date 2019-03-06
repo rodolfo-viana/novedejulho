@@ -69,15 +69,19 @@ def test_null_values():
         assert i != ''
 
 
+def test_sanitize_int():
+    global dataset
+    dataset['ano'] = dataset['ano'].astype('int64')
+
+
+def test_int_values():
+    for k in dataset['ano']:
+        assert type(k) == int
+
+
 def test_type_str():
     for j in dataset['gravadora']:
         assert type(j) == str
-
-
-def test_sanitize_int():
-    for k in dataset['ano']:
-        return int(k)
-        assert type(k) == int
 
 
 def test_sanitize_float():
