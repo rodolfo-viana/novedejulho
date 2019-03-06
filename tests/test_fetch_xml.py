@@ -77,8 +77,7 @@ def test_fetch_xml():
     url_base = 'https://www.w3schools.com/xml/'
     url_file = 'cd_catalog.xml'
     url = url_base + url_file
-    xml_data = req.get(url).content
-    dataset = ParseXml(xml_data).process_data()
+    dataset = ParseXml(url).process_data()
 
 
 def test_rename_columns():
