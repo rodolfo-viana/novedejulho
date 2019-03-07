@@ -26,8 +26,8 @@ Conjuntos referentes aos deputados durante campanhas eleitorais são coletados d
 
 __Checagem automática das fontes neste momento:__
 
-![Alesp](https://img.shields.io/website-up-down-green-red/https//www.al.sp.gov.br/dados-abertos/recurso/101.svg?label=site%20da%20dados%20da%20alesp)<br>
-![TSE](https://img.shields.io/website-up-down-green-red/http/agencia.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip.svg?label=site%20da%20dados%20do%20tse)
+[![Alesp](https://img.shields.io/website-up-down-green-red/https/www.al.sp.gov.br/dados-abertos/recurso/101.svg?label=site%20de%20dados%20da%20alesp)](https://www.al.sp.gov.br/dados-abertos/)<br>
+[![TSE](https://img.shields.io/website-up-down-green-red/http/agencia.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip.svg?label=site%20de%20dados%20do%20tse)](http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais)
 
 ### Conteúdo
 
