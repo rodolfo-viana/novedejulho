@@ -109,3 +109,6 @@ pip-selfcheck.json
 
 # data folder
 novedejulho/data_*
+
+# backup
+/novedejulho/bkp_scripts/
