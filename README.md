@@ -8,7 +8,7 @@
 [![codecov](https://img.shields.io/codecov/c/github/rodolfo-viana/novedejulho.svg)](https://codecov.io/gh/rodolfo-viana/novedejulho)<br>
 [![GitHub release](https://img.shields.io/github/release/rodolfo-viana/novedejulho.svg)](https://github.com/rodolfo-viana/novedejulho/releases/tag/v0.1-beta.1)
 ![Code size](https://img.shields.io/github/languages/code-size/rodolfo-viana/novedejulho.svg)
-![Feito com <3](https://img.shields.io/badge/made%20with-%3C3-red.svg)
+![Feito com amor](https://img.shields.io/badge/made%20with-%3C3-red.svg)
 
 > Criação de [rodolfo-viana](https://github.com/rodolfo-viana)<br>
 > Colaborações de [cuducos](https://github.com/cuducos), [jtemporal](https://github.com/jtemporal) e [Vnicius](https://github.com/Vnicius)<br>
@@ -24,31 +24,32 @@ Os dados são coletados diretamente da Alesp por meio do [Portal dos Dados Abert
 
 Conjuntos referentes aos deputados durante campanhas eleitorais são coletados do [Repositório de dados eleitorais](http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais), do TSE.
 
-__Checagem automática das fontes neste momento:__
-
-[![Alesp](https://img.shields.io/website-up-down-green-red/https/www.al.sp.gov.br/dados-abertos/recurso/101.svg?label=site%20de%20dados%20da%20alesp)](https://www.al.sp.gov.br/dados-abertos/)<br>
-[![TSE](https://img.shields.io/website-up-down-green-red/http/agencia.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip.svg?label=site%20de%20dados%20do%20tse)](http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais)
-
 ### Conteúdo
 
 `novedejulho.py` aciona mais de duas dezenas de scripts que fazem o download de dados como gastos feitos via verba de gabinete, salários dos servidores, presenças dos deputados em comissões, projetos apresentados etc.
 
+![Screenshot](https://i.imgur.com/UCHsXgx.png)
+
 Pelo começo do nome dos arquivos é possível saber a qual categoria pertence cada script:
 
-- `com` para dados de comissões (votações, sessões, presenças etc.)
-- `dep` para dados de deputados (bases eleitorais, áreas de atuação, gastos na cota etc.)
-- `doc` para dados de documentos (projetos de lei, autores, pareceres etc.)
-- `leg` para dados de legislação (normas, anotações, temas etc.)
-- `serv` para dados de servidores (lotações, cargos, salários etc.)
-- `cand` para dados dos deputados quando candidatos nas eleições de 2014 e 2018 (candidatos e bens declarados)
+- `coms` para dados de comissões (votações, sessões, presenças etc.)
+- `deps` para dados de deputados (bases eleitorais, áreas de atuação, gastos na cota etc.)
+- `docs` para dados de documentos (projetos de lei, autores, pareceres etc.)
+- `legs` para dados de legislação (normas, anotações, temas etc.)
+- `servs` para dados de servidores (lotações, cargos, salários etc.)
+- `cands` para dados dos deputados quando candidatos nas eleições de 2014 e 2018 (candidatos e bens declarados)
 
 Alguns desses scripts terminam com `indice` no nome. Isso indica que os dados raspados por meio deles servem como `foreign keys` em agregações.
 
 Todos os dados são salvos em arquivos `.csv` (para ler em Excel ou LibreOffice Calc) e `.xz` (para usar com Pandas). Também são agregados em um banco de dados `.db` (para acessar com SQL).
 
-![Screenshot](https://i.imgur.com/GZlaKuJ.png)
+Em 8 de março de 2019, `novedejulho.py` baixou 67 arquivos, sendo:
 
-Outros scripts estão em produção, como para baixar contratos e convênios firmados pela Alesp.
+- 33 arquivos `.csv`, com tamanho total de ~339 Mb
+- 33 arquivos `.xz`, com tamanho total de ~27 Mb
+- 1 arquivo `.db`, com tamanho total de ~374 Mb
+
+Outros scripts estão em produção, como para baixar contratos firmados pela Alesp e processos agregados no Tribunal de Justiça de São Paulo.
 
 ### Como usar
 
