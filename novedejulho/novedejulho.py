@@ -4,10 +4,9 @@ from datetime import datetime
 
 from ndj_toolbox.format import generate_db
 
-hoje = datetime.strftime(datetime.now(), '%Y-%m-%d')
-
+TODAY = datetime.strftime(datetime.now(), '%Y-%m-%d')
+DATA_DIR = f'data_{TODAY}'
 IGNORE_LIST = ['__init__.py', 'novedejulho.py']
-DATA_DIR = f'data_{hoje}'
 
 
 def create_dir():
