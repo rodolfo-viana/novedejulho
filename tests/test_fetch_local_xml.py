@@ -1,11 +1,8 @@
 import os
 import xml.etree.ElementTree as ElementTree
-from urllib.request import urlretrieve
 
 import pandas as pd
 
-f = urlretrieve('https://www.w3schools.com/xml/cd_catalog.xml',
-                'cd_catalog.xml')
 
 xml_data = 'cd_catalog.xml'
 
