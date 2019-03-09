@@ -27,7 +27,7 @@ def retrieve_files():
 
 if __name__ == '__main__':
     start = time()
-    print(f"Criando o diretório {DATA_DIR}...")
+    print(f"Criando {DATA_DIR}...")
     create_dir()
     retrieve_files()
     print("Gerando o arquivo novedejulho.db...")

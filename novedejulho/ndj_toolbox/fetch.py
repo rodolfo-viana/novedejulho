@@ -36,7 +36,7 @@ class ParseXml:
         return pd.DataFrame(self.parse_root())
 
 
-class ParseXmlRemote:
+class ParseXmlRemote():
 
     def __init__(self, xml_data):
         self.root = ElementTree.XML(xml_data)
