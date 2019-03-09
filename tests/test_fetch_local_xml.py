@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ElementTree
 
 import pandas as pd
 
-file = '/home/travis/build/rodolfo-viana/novedejulho/tests/cd_catalog.xml'
+file = 'cd_catalog.xml'
 
 
 class ParseXml:
