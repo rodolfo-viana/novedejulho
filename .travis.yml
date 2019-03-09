@@ -11,7 +11,6 @@ install:
 
 script:
   - cd tests
-  - wget -P /home/travis/build/rodolfo-viana/novedejulho/tests/ https://www.w3schools.com/xml/cd_catalog.xml
   - coverage run -m pytest test_fetch_remote_xml.py test_fetch_local_xml.py -v
 
 after_success:
