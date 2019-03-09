@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ElementTree
 import pandas as pd
 
 
-xml_data = 'cd_catalog.xml'
+xml_data = '/home/travis/build/rodolfo-viana/novedejulho/tests/cd_catalog.xml'
 
 
 class ParseXml:
