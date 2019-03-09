@@ -3,8 +3,7 @@ import xml.etree.ElementTree as ElementTree
 
 import pandas as pd
 
-
-xml_data = '/home/travis/build/rodolfo-viana/novedejulho/tests/cd_catalog.xml'
+file = '/home/travis/build/rodolfo-viana/novedejulho/tests/cd_catalog.xml'
 
 
 class ParseXml:
@@ -64,7 +63,8 @@ class ParseXmlRemote():
 
 def test_fetch_xml():
     global dataset
-    dataset = ParseXml(xml_data).process_data()
+    with open(file, 'r') as xml_data:
+        dataset = ParseXml(xml_data).process_data()
 
 
 def test_sanitize_int():
