@@ -102,27 +102,27 @@ def test_str_values():
 
 def test_sanitize_int():
     global dataset
-    dataset['YEAR'] = dataset['YEAR'].astype('int64')
+    dataset['ano'] = dataset['ano'].astype('int64')
 
 
 def test_int_values():
-    for j in dataset['YEAR']:
+    for j in dataset['ano']:
         assert type(j) == int
 
 
 def test_sanitize_float():
     global dataset
-    dataset['PRICE'] = dataset['PRICE'].astype('float64')
+    dataset['preco'] = dataset['preco'].astype('float64')
 
 
 def test_float_values():
-    for k in dataset['PRICE']:
+    for k in dataset['preco']:
         assert type(k) == float
 
 
 def test_sum():
-    assert dataset['PRICE'].sum() == 237.0
+    assert dataset['preco'].sum() == 237.0
 
 
 def test_count():
-    assert dataset['TITLE'].count() == 26
+    assert dataset['titulo'].count() == 26
