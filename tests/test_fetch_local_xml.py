@@ -7,6 +7,8 @@ import pandas as pd
 f = urlretrieve('https://www.w3schools.com/xml/cd_catalog.xml',
                 'cd_catalog.xml')
 
+xml_data = 'cd_catalog.xml'
+
 
 class ParseXml:
 
@@ -65,7 +67,7 @@ class ParseXmlRemote():
 
 def test_fetch_xml():
     global dataset
-    dataset = ParseXml(f).process_data()
+    dataset = ParseXml(xml_data).process_data()
 
 
 def test_sanitize_int():
