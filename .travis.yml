@@ -11,7 +11,7 @@ install:
 
 script:
   - cd tests
-  - wget -P "https://www.w3schools.com/xml/cd_catalog.xml"
+  - wget -P https://www.w3schools.com/xml/cd_catalog.xml
   - coverage run -m pytest test_fetch_remote_xml.py test_fetch_local_xml.py -v
 
 after_success:
