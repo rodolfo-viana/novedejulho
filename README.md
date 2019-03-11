@@ -28,7 +28,7 @@ Conjuntos referentes aos deputados durante campanhas eleitorais são coletados d
 
 `novedejulho.py` aciona mais de duas dezenas de scripts que fazem o download de dados como gastos feitos via verba de gabinete, salários dos servidores, presenças dos deputados em comissões, projetos apresentados etc.
 
-![Screenshot](https://i.imgur.com/UCHsXgx.png)
+![Screenshot](https://i.imgur.com/lMZsso4.png)
 
 Pelo começo do nome dos arquivos é possível saber a qual categoria pertence cada script:
 
