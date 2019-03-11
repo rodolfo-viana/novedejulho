@@ -1,10 +1,8 @@
 import os
 from datetime import datetime
-from urllib.request import urlretrieve
-from zipfile import ZipFile
 import requests as req
 
-from ndj_toolbox.fetch import (ParseXml, ParseXmlRemote, save)
+from ndj_toolbox.fetch import (ParseXml, ParseXmlRemote, fetch_zip, save)
 from ndj_toolbox.format import remove_break_line
 
 TODAY = datetime.strftime(datetime.now(), '%Y-%m-%d')
@@ -88,13 +86,6 @@ cols_tramit_regime = {
     'DataInicio': 'dt_inicio',
     'DataFim': 'dt_fim'
 }
-
-
-def fetch_zip(url, arquivo_zip):
-    urlretrieve(url, f'{DATA_DIR}/{arquivo_zip}')
-    with ZipFile(f'{DATA_DIR}/{arquivo_zip}', 'r') as zip_file:
-        zip_file.extractall(f'{DATA_DIR}')
-    os.remove(f'{DATA_DIR}/{arquivo_zip}')
 
 
 def docs():

@@ -1,7 +1,10 @@
 import os
 from datetime import datetime
 import xml.etree.ElementTree as ElementTree
+from urllib.request import urlretrieve
+from zipfile import ZipFile
 
+from tqdm import tqdm
 import pandas as pd
 
 TODAY = datetime.strftime(datetime.now(), '%Y-%m-%d')
@@ -63,6 +66,23 @@ class ParseXmlRemote():
         return pd.DataFrame(self.parse_root())
 
 
+def fetch_zip(url, arquivo_zip):
+    """Baixa o arquivo zip de uma URL, descompacta, salva
+    o arquivo descompactado na pasta correta e deleta o zip:
+
+    >> fetch_zip('http://...arquivo.zip', 'arquivo.zip')
+    'pasta_correta/arquivo.xml'
+
+    :param url: (str) URL do arquivo zip
+    :param name: (str) nome do arquivo zip a ser salvo
+    :return: (str) caminho para o arquivo descompactado
+    """
+    urlretrieve(url, f'{DATA_DIR}/{arquivo_zip}')
+    with ZipFile(f'{DATA_DIR}/{arquivo_zip}', 'r') as zip_file:
+        zip_file.extractall(f'{DATA_DIR}')
+    os.remove(f'{DATA_DIR}/{arquivo_zip}')
+
+
 def save_file(dataset, name, extension):
     params = {'encoding': 'utf-8',
               'index': False,
@@ -75,7 +95,7 @@ def save_file(dataset, name, extension):
 
 
 def save(dataset, name):
-    """Função para salvar dataset em csv e xz, na pasta correta e com os
+    """Salva dataset em csv e xz, na pasta correta e com os
     parâmetros pré-estabelecidos:
 
     >> save(dataset, 'name')
@@ -86,5 +106,5 @@ def save(dataset, name):
     :param name: (str) nome do arquivo
     :return: (str) caminho para o arquivo salvo
     """
-    for extension in ('csv', 'xz'):
+    for extension in tqdm(('csv', 'xz'), desc=f'- {name}', ncols=100):
         save_file(dataset, name, extension)

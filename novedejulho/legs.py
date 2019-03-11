@@ -1,10 +1,8 @@
 import os
 from datetime import datetime
-from urllib.request import urlretrieve
-from zipfile import ZipFile
 import requests as req
 
-from ndj_toolbox.fetch import (ParseXml, ParseXmlRemote, save)
+from ndj_toolbox.fetch import (ParseXml, ParseXmlRemote, fetch_zip, save)
 from ndj_toolbox.format import remove_break_line
 
 TODAY = datetime.strftime(datetime.now(), '%Y-%m-%d')
@@ -50,13 +48,6 @@ cols_tipos = {
     'IdTipo': 'id_tp_norma',
     'DsTipo': 'ds_tp_norma'
 }
-
-
-def fetch_zip(url, arquivo_zip):
-    urlretrieve(url, f'{DATA_DIR}/{arquivo_zip}')
-    with ZipFile(f'{DATA_DIR}/{arquivo_zip}', 'r') as zip_file:
-        zip_file.extractall(f'{DATA_DIR}')
-    os.remove(f'{DATA_DIR}/{arquivo_zip}')
 
 
 def legs():
@@ -110,7 +101,7 @@ def subtemas():
     dataset = ParseXmlRemote(xml_data).process_data()
     dataset = dataset[['IdSubTema', 'SubTema']]
     dataset = dataset.rename(columns=cols_subtemas)
-    save(dataset, 'doc_subtemas_indice')
+    save(dataset, 'leg_subtemas_indice')
 
 
 def temas():
@@ -122,7 +113,7 @@ def temas():
     dataset = ParseXmlRemote(xml_data).process_data()
     dataset = dataset[['IdTema', 'Tema']]
     dataset = dataset.rename(columns={'IdTema': 'id_tema', 'Tema': 'ds_tema'})
-    save(dataset, 'doc_temas_indice')
+    save(dataset, 'leg_temas_indice')
 
 
 def tipos():
@@ -134,7 +125,7 @@ def tipos():
     dataset = ParseXmlRemote(xml_data).process_data()
     dataset = dataset[['IdTipo', 'DsTipo']]
     dataset = dataset.rename(columns=cols_tipos)
-    save(dataset, 'doc_tipos_indice')
+    save(dataset, 'leg_tipos_indice')
 
 
 def main():
