@@ -62,7 +62,7 @@ def deps():
     url_base = 'http://agencia.tse.jus.br/estatistica/sead/odsele/consulta_cand/'
     arquivos = ['consulta_cand_2014', 'consulta_cand_2018']
 
-    with open(f'{DATA_DIR}/candidato_deputados.csv', 'a', newline='') as infile:
+    with open(f'{DATA_DIR}/candidato_deputados.csv', 'a', newline='', encoding='latin-1') as infile:
         writer = csv.writer(infile, delimiter=';')
 
         for arquivo in arquivos:
@@ -94,7 +94,7 @@ def bens():
     url_base = 'http://agencia.tse.jus.br/estatistica/sead/odsele/bem_candidato/'
     arquivos = ['bem_candidato_2014', 'bem_candidato_2018']
 
-    with open(f'{DATA_DIR}/candidato_bem.csv', 'a', newline='') as infile:
+    with open(f'{DATA_DIR}/candidato_bem.csv', 'a', newline='', encoding='latin-1') as infile:
         writer = csv.writer(infile, delimiter=';')
 
         for arquivo in arquivos:
