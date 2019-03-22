@@ -72,7 +72,7 @@ def deps():
                 zip_file.extract(f'{arquivo}_SP.csv', path=f'{DATA_DIR}')
             os.remove(f'{DATA_DIR}/{arquivo}.zip')
 
-            with open(f'{DATA_DIR}/{arquivo}_SP.csv', 'r') as original:
+            with open(f'{DATA_DIR}/{arquivo}_SP.csv', 'r', encoding='latin-1') as original:
                 reader = csv.reader(original, delimiter=';')
                 next(reader, None)
                 for row in reader:
@@ -104,7 +104,7 @@ def bens():
                 zip_file.extract(f'{arquivo}_SP.csv', path=f'{DATA_DIR}')
             os.remove(f'{DATA_DIR}/{arquivo}.zip')
 
-            with open(f'{DATA_DIR}/{arquivo}_SP.csv', 'r') as original:
+            with open(f'{DATA_DIR}/{arquivo}_SP.csv', 'r', encoding='latin-1') as original:
                 reader = csv.reader(original, delimiter=';')
                 next(reader, None)
                 for row in reader:
