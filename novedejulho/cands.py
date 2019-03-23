@@ -10,7 +10,7 @@ from ndj_toolbox.fetch import save
 TODAY = datetime.strftime(datetime.now(), '%Y-%m-%d')
 DATA_DIR = f'data_{TODAY}'
 
-cols_deps = [
+cols_cands = [
     'dt_geracao', 'hh_geracao', 'ano_eleicao', 'cd_tipo_eleicao',
     'nm_tipo_eleicao', 'nr_turno', 'cd_eleicao', 'ds_eleicao',
     'dt_eleicao', 'tp_abrangencia', 'sg_uf', 'sg_ue', 'nm_ue', 'cd_cargo',
@@ -25,9 +25,16 @@ cols_deps = [
     'nr_idade_data_posse', 'nr_titulo_eleitoral_candidato', 'cd_genero',
     'ds_genero', 'cd_grau_instrucao', 'ds_grau_instrucao',
     'cd_estado_civil', 'ds_estado_civil', 'cd_cor_raca', 'ds_cor_raca',
-    'cd_ocupacao', 'ds_ocupacao', 'nr_despesa_max_campanha',
+    'cd_ocupacao', 'ds_ocupacao', 'vlr_despesa_max_campanha',
     'cd_sit_tot_turno', 'ds_sit_tot_turno', 'st_reeleicao',
     'st_declarar_bens', 'nr_protocolo_candidatura', 'nr_processo'
+]
+
+drop_cols_cands = [
+    'cd_tipo_eleicao', 'nr_turno', 'cd_eleicao', 'sg_uf', 'cd_cargo',
+    'cd_situacao_candidatura', 'cd_detalhe_situacao_cand', 
+    'cd_nacionalidade', 'cd_genero', 'cd_grau_instrucao', 'cd_estado_civil', 
+    'cd_cor_raca', 'cd_ocupacao', 'cd_sit_tot_turno'
 ]
 
 cols_bens = [
@@ -38,23 +45,20 @@ cols_bens = [
     'hh_ultima_atualizacao'
 ]
 
-cols_drop = [
-    'dt_geracao_y', 'hh_geracao_y', 'ano_eleicao_y', 'cd_tipo_eleicao_y',
-    'nm_tipo_eleicao_y', 'nr_turno', 'cd_eleicao_y', 'ds_eleicao_y',
-    'dt_eleicao_y', 'tp_abrangencia', 'sg_uf_y', 'sg_ue_y', 'nm_ue_y',
-    'cd_cargo', 'ds_cargo', 'nm_email', 'cd_situacao_candidatura',
-    'ds_situacao_candidatura', 'cd_detalhe_situacao_cand',
-    'ds_detalhe_situacao_cand', 'tp_agremiacao', 'nr_partido', 'sg_partido',
-    'nm_partido', 'sq_coligacao', 'nm_coligacao', 'ds_composicao_coligacao',
-    'cd_nacionalidade', 'ds_nacionalidade', 'sg_uf_nascimento',
+
+drop_cols_bens = [
+    'cd_tp_bem', 'dt_geracao_y', 'hh_geracao_y', 'ano_eleicao_y', 'cd_tipo_eleicao',
+    'nm_tipo_eleicao_y', 'cd_eleicao', 'ds_eleicao_y', 'dt_eleicao_y', 
+    'sg_uf', 'sg_ue_y', 'nm_ue_y', 'ds_cargo', 'nm_email', 
+    'ds_situacao_candidatura', 'ds_detalhe_situacao_cand', 'tp_agremiacao', 
+    'nr_partido', 'sg_partido', 'nm_partido', 'sq_coligacao', 'nm_coligacao', 
+    'ds_composicao_coligacao', 'ds_nacionalidade', 'sg_uf_nascimento',
     'cd_municipio_nascimento', 'nm_municipio_nascimento', 'dt_nascimento',
-    'nr_idade_data_posse', 'nr_titulo_eleitoral_candidato', 'cd_genero',
-    'ds_genero', 'cd_grau_instrucao', 'ds_grau_instrucao', 'cd_estado_civil',
-    'ds_estado_civil', 'cd_cor_raca', 'ds_cor_raca', 'cd_ocupacao',
-    'ds_ocupacao', 'nr_despesa_max_campanha', 'cd_sit_tot_turno',
-    'ds_sit_tot_turno', 'st_reeleicao', 'st_declarar_bens',
-    'nr_protocolo_candidatura', 'nr_processo', 'dt_ultima_atualizacao',
-    'hh_ultima_atualizacao'
+    'nr_idade_data_posse', 'nr_titulo_eleitoral_candidato', 'ds_genero', 
+    'ds_grau_instrucao', 'ds_estado_civil', 'ds_cor_raca', 'ds_ocupacao', 
+    'vlr_despesa_max_campanha', 'ds_sit_tot_turno', 'st_reeleicao', 
+    'st_declarar_bens', 'nr_protocolo_candidatura', 'nr_processo', 
+    'dt_ultima_atualizacao', 'hh_ultima_atualizacao'
 ]
 
 
@@ -81,11 +85,11 @@ def deps():
 
     dataset = pd.read_csv(f'{DATA_DIR}/candidato_deputados.csv',
                           header=0,
-                          names=cols_deps,
+                          names=cols_cands,
                           encoding='latin-1',
                           sep=';')
     dataset = dataset[dataset['ds_cargo'] == 'DEPUTADO ESTADUAL']
-
+    dataset.drop(columns=drop_cols_cands, inplace=True)
     save(dataset, 'cand')
     os.remove(f'{DATA_DIR}/candidato_deputados.csv')
 
@@ -120,13 +124,13 @@ def bens():
     cands = pd.read_csv(f'{DATA_DIR}/cand.csv')
     dataset = cands.merge(bens, on='sq_candidato', how='left')
     dataset['vlr_bem'].fillna(0.0, inplace=True)
-    dataset.drop(columns=cols_drop, inplace=True)
+    dataset.drop(columns=drop_cols_bens, inplace=True)
     dataset = dataset[[
-        'dt_geracao_x', 'hh_geracao_x', 'ano_eleicao_x', 'cd_tipo_eleicao_x',
-        'nm_tipo_eleicao_x', 'cd_eleicao_x', 'ds_eleicao_x', 'dt_eleicao_x',
-        'sg_uf_x', 'sg_ue_x', 'nm_ue_x', 'sq_candidato', 'nr_candidato',
+        'dt_geracao_x', 'hh_geracao_x', 'ano_eleicao_x',
+        'nm_tipo_eleicao_x', 'ds_eleicao_x', 'dt_eleicao_x',
+        'sg_ue_x', 'nm_ue_x', 'sq_candidato', 'nr_candidato',
         'nm_candidato', 'nm_urna_candidato', 'nm_social_candidato',
-        'nr_cpf_candidato', 'nr_ordem_candidato', 'cd_tp_bem', 'ds_tp_bem',
+        'nr_cpf_candidato', 'nr_ordem_candidato', 'ds_tp_bem',
         'ds_bem', 'vlr_bem']]
     dataset.columns = dataset.columns.str.replace('_x', '')
 
