@@ -91,6 +91,10 @@ def save_file(dataset, name, extension):
         params['compression'] = 'xz'
 
     file_name = f'{name}.{extension}'
+    dataset = dataset.apply(lambda x: x.str.lower() if (x.dtype == 'object') else x)
+    dataset.replace({'#nulo#': '',
+                     'null/null': '',
+                     'null': ''}, inplace=True)
     dataset.to_csv(os.path.join(DATA_DIR, file_name), **params)
 
 
