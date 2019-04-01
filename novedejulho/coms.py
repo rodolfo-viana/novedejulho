@@ -1,6 +1,7 @@
 import requests as req
 
 from ndj_toolbox.fetch import (ParseXmlRemote, save)
+from ndj_toolbox.format import remove_dep
 
 cols_com = {
     'IdComissao': 'id_comissao',
@@ -80,7 +81,7 @@ def coms():
         'DataFimComissao'
     ]]
     dataset = dataset.rename(columns=cols_com)
-    save(dataset, 'com')
+    save(dataset, 'com_reunioes')
 
 
 def deliberacoes():
@@ -141,7 +142,7 @@ def reunioes():
         'Data', 'CodSituacao', 'Situacao', 'Presidente'
     ]]
     dataset = dataset.rename(columns=cols_reun)
-    save(dataset, 'com_reunioes')
+    save(remove_dep(dataset), 'com_reunioes')
 
 
 def votacoes():
