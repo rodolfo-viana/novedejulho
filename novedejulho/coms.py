@@ -81,7 +81,7 @@ def coms():
         'DataFimComissao'
     ]]
     dataset = dataset.rename(columns=cols_com)
-    save(dataset, 'com_reunioes')
+    save(dataset, 'com')
 
 
 def deliberacoes():
