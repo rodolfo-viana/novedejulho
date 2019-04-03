@@ -12,7 +12,7 @@
 [![Feito com amor](https://img.shields.io/badge/made%20with-%3C3-red.svg)](https://www.youtube.com/watch?v=OKTRc7x-zCM)
 
 > Criação de [rodolfo-viana](https://github.com/rodolfo-viana)<br>
-> Colaborações de [cuducos](https://github.com/cuducos), [jtemporal](https://github.com/jtemporal) e [Vnicius](https://github.com/Vnicius)<br>
+> Colaborações de [cuducos](https://github.com/cuducos), [jtemporal](https://github.com/jtemporal), [Vnicius](https://github.com/Vnicius) e [hducati](https://github.com/hducati)<br>
 > Desenvolvimento desde janeiro de 2019
 
 Nove de Julho é um projeto open-source de ativismo cívico com foco na Assembleia Legislativa do Estado de São Paulo.
