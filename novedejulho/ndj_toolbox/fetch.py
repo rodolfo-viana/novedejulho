@@ -12,6 +12,13 @@ DATA_DIR = f'data_{TODAY}'
 
 
 class ParseXml:
+    """Faz análise de um xml local e processa em dataframe:
+
+    >> ParseXmlRemote('arquivo.xml').process_data()
+
+    :param xml_data: (var / str) arquivo de origem
+    :return: (var) variável apontando para o dataframe
+    """
 
     def __init__(self, xml_data):
         self.tree = ElementTree.parse(xml_data)
@@ -40,6 +47,13 @@ class ParseXml:
 
 
 class ParseXmlRemote():
+    """Faz análise de um xml remoto e processa em dataframe:
+
+    >> ParseXmlRemote('http://...arquivo.xml').process_data()
+
+    :param xml_data: (var / str) arquivo de origem
+    :return: (var) variável apontando para o dataframe
+    """
 
     def __init__(self, xml_data):
         self.root = ElementTree.XML(xml_data)
@@ -67,8 +81,8 @@ class ParseXmlRemote():
 
 
 def fetch_zip(url, arquivo_zip):
-    """Baixa o arquivo zip de uma URL, descompacta, salva
-    o arquivo descompactado na pasta correta e deleta o zip:
+    """Baixa o arquivo zip de uma URL, descompacta, salva o arquivo
+    descompactado na pasta correta e deleta o zip:
 
     >> fetch_zip('http://...arquivo.zip', 'arquivo.zip')
     'pasta_correta/arquivo.xml'
@@ -84,6 +98,13 @@ def fetch_zip(url, arquivo_zip):
 
 
 def save_file(dataset, name, extension):
+    """Função auxiliar para a função 'save'. Formata o dataframe e
+    parametriza as duas extensões:
+
+    :param dataset: (var) dataframe a ser salvo
+    :param name: (str) nome do arquivo
+    :return: (str) a extensão .csv ou .xz
+    """
     params = {'encoding': 'utf-8',
               'index': False,
               'sep': ','}
@@ -91,16 +112,18 @@ def save_file(dataset, name, extension):
         params['compression'] = 'xz'
 
     file_name = f'{name}.{extension}'
-    dataset = dataset.apply(lambda x: x.str.lower() if (x.dtype == 'object') else x)
-    dataset.replace({'#nulo#': '',
-                     'null/null': '',
-                     'null': ''}, inplace=True)
+    dataset = dataset.apply(lambda x: x.str.lower() if (x.dtype == 'object')
+                            else x)
+    dataset = dataset.apply(lambda x: x.replace({
+        '#nulo#': '',
+        'null/null': ''
+    }) if (x.dtype == 'object') else x)
     dataset.to_csv(os.path.join(DATA_DIR, file_name), **params)
 
 
 def save(dataset, name):
-    """Salva dataset em csv e xz, na pasta correta e com os
-    parâmetros pré-estabelecidos:
+    """Salva dataset em csv e xz, na pasta correta e com os parâmetros
+    pré-estabelecidos:
 
     >> save(dataset, 'name')
     'pasta_correta/name.csv'
