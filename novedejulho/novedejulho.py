@@ -37,6 +37,7 @@ def generate_db():
     DATA_DIR = f'data_{hoje}'
     for csvFile in glob.glob(f'{DATA_DIR}/*.csv'):
         file_name = os.path.basename(csvFile)
+        file_name = file_name[0:-4]
         with open(csvFile, mode='r', encoding='utf-8') as file_table:
             reader = csv.DictReader(file_table)
             fields = tuple(reader.fieldnames)
