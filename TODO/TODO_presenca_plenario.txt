@@ -1,6 +1,0 @@
-https://www.al.sp.gov.br/sigp-portal/default.xhtml?
-formFiltros=formFiltros&
-formFiltros%3AlistaDeputados=228&
-formFiltros%3AmesAnoSessao=11%2F2017&
-formFiltros%3Aj_idt17=Filtrar&
-javax.faces.ViewState=1272469544397083990%3A558078948042401205
