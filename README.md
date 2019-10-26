@@ -1,6 +1,3 @@
-<p align="center"><img src="https://media.giphy.com/media/moN59IdquTB0xE0g5c/giphy.gif" width="100"></p>
-
-
 # __Nove de Julho__
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/dc4a0d2281a965d5dfd6/maintainability)](https://codeclimate.com/github/rodolfo-viana/novedejulho/maintainability)
