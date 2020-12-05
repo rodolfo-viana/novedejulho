@@ -1,0 +1,20 @@
+[
+    {
+        "IdUA": "id_ua",
+        "NomeUA": "nm_ua",
+        "NomeFuncionario": "nm_funcionario",
+        "IdCargo": "id_cargo",
+        "NomeCargo": "nm_cargo",
+        "IdRegime": "id_regime",
+        "NomeRegime": "nm_regime"
+    },
+    {
+        "id_ua": "int",
+        "nm_ua": "str",
+        "nm_funcionario": "str",
+        "id_cargo": "int",
+        "nm_cargo": "str",
+        "id_regime": "int",
+        "nm_regime": "str"
+    }
+]

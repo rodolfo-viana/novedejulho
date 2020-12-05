@@ -1,0 +1,16 @@
+[
+    {
+        "IdComissao": "id_comissao",
+        "NomeComissao": "nm_comissao",
+        "SiglaComissao": "sg_comissao",
+        "DescricaoComissao": "ds_comissao",
+        "DataFimComissao": "dt_fim_comissao"
+    },
+    {
+        "id_comissao": "int",
+        "nm_comissao": "str",
+        "sg_comissao": "str",
+        "ds_comissao": "str",
+        "dt_fim_comissao": "str"
+    }
+]

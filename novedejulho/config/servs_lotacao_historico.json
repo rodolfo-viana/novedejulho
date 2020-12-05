@@ -1,0 +1,16 @@
+[
+    {
+        "NomeFuncionario": "nm_funcionario",
+        "IdUA": "id_ua",
+        "NomeUA": "nm_ua",
+        "DataInicio": "dt_inicio",
+        "DataFim": "dt_fim"
+    },
+    {
+        "nm_funcionario": "str",
+        "id_ua": "int",
+        "nm_ua": "str",
+        "dt_inicio": "str",
+        "dt_fim": "str"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "NomeFuncionario": "nm_funcionario",
+        "IdCargo": "id_cargo",
+        "NomeCargo": "nm_cargo",
+        "IdRegime": "id_regime",
+        "NomeRegime": "nm_regime",
+        "DataInicio": "dt_inicio",
+        "DataFim": "dt_fim"
+    },
+    {
+        "nm_funcionario": "str",
+        "id_cargo": "int",
+        "nm_cargo": "str",
+        "id_regime": "int",
+        "nm_regime": "str",
+        "dt_inicio": "str",
+        "dt_fim": "str"
+    }
+]
